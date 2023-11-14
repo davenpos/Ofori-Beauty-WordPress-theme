@@ -1,0 +1,83 @@
+/*
+Theme Name: Ofori Beauty
+Author: Simeon Davenport
+Description: The WordPress theme for the Ofori Beauty website
+Version: 1.0.0
+*/
+
+/* Basic styles */
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.admin-bar { min-height: calc(100vh - 32px); }
+
+div#mainContent {
+    flex: 1;
+}
+
+div.textContent {
+    padding: 0 80px;
+}
+
+/* Header and footer styles */
+
+header a, header a i, footer a, footer a i {
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+ul.menu { list-style: none; }
+
+/* Header-specific styles */
+header {
+    background-color: #ffe1ee;
+    color: rgb(239, 139, 161);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px;
+}
+
+header ul.menu { display: flex; }
+
+header ul.menu li { margin: 0 15px; }
+
+header a, header a i {
+    color: rgb(239, 139, 161);
+}
+
+header a:hover, header a:hover i { color: rgb(245, 83, 115); }
+
+header li.current-menu-item a {
+    color: rgb(245, 83, 115);
+    text-decoration: underline;
+}
+
+a.searchIcon { margin-left: auto; }
+
+/* Footer-specific styles */
+footer {
+    background-color: #f6ced2;
+    padding: 40px 80px 0;
+}
+
+div#threeColumns {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer ul.menu {
+    padding-left: 0;
+}
+
+footer p#smallFooterText {
+    font-size: 12px;
+    text-align: center;
+}
