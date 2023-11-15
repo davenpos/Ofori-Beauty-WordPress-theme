@@ -6,6 +6,10 @@ Version: 1.0.0
 */
 
 /* Basic styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Roboto, sans-serif;
     margin: 0;
@@ -18,11 +22,10 @@ body.admin-bar { min-height: calc(100vh - 32px); }
 
 div#mainContent {
     flex: 1;
+    /*padding-top: 164.4px;*/
 }
 
-div.textContent {
-    padding: 0 80px;
-}
+div.textContent { padding: 0 80px; }
 
 /* Header and footer styles */
 
@@ -42,7 +45,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 80px;
+    /*position: fixed;
+    width: 100%;*/
 }
+
+body.admin-bar header { top: 32px; }
 
 header ul.menu { display: flex; }
 
@@ -59,7 +66,9 @@ header li.current-menu-item a {
     text-decoration: underline;
 }
 
-a.searchIcon { margin-left: auto; }
+a.searchIcon {
+    margin-left: auto;
+}
 
 /* Footer-specific styles */
 footer {
@@ -80,4 +89,33 @@ footer ul.menu {
 footer p#smallFooterText {
     font-size: 12px;
     text-align: center;
+}
+
+footer, footer a, footer a i {
+    color: rgb(106, 95, 96);
+}
+
+footer a:hover, footer a:hover i { color: rgb(59, 58, 58); }
+
+footer li.current-menu-item a {
+    color: rgb(59, 58, 58);
+    text-decoration: underline;
+}
+
+footer h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+footer ul.menu {
+    margin: 0;
+}
+
+footer li { padding-bottom: 20px; }
+
+div#socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
 }
