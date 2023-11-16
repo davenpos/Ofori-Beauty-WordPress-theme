@@ -41,13 +41,17 @@ class StickyHeader {
         });
         this.mainContent.css("padding-top", this.headerHeight + "px");
       } else {
-        this.header.css("top", this.top);
+        this.header.css({
+          "top": this.top,
+          "transition": "top 0.3s ease-in-out"
+        });
       }
     }
     if (window.scrollY == 0) {
       this.header.css({
         "position": "",
-        "width": ""
+        "width": "",
+        "transition": ""
       });
       this.mainContent.css("padding-top", "");
     }
@@ -55,9 +59,6 @@ class StickyHeader {
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StickyHeader);
-
-//https://jsfiddle.net/mariusc23/s6mLJ/31/
-//https://webdesign.tutsplus.com/how-to-hide-reveal-a-sticky-header-on-scroll-with-javascript--cms-33756t
 
 /***/ }),
 

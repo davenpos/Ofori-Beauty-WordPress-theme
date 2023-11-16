@@ -44,7 +44,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 80px;
-    transition: top 0.3s ease-in-out;
 }
 
 header ul.menu { display: flex; }
