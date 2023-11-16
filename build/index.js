@@ -18,20 +18,42 @@ __webpack_require__.r(__webpack_exports__);
 class StickyHeader {
   constructor() {
     this.header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('header');
+    this.headerHeight = this.header.outerHeight();
+    this.top = 0;
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
+      this.top = 32;
+    }
+    this.mainContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('div#mainContent');
+    this.lastScrollTop;
     this.events();
   }
   events() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll", this.toggleHeader);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll", () => this.toggleHeader());
   }
   toggleHeader() {
-    console.log(window.scrollY);
-
-    /*if (window.scrollY > this.header.outerHeight()) {
-        this.header.css("top", )
-    }*/
+    const currentScroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
+    if (currentScroll > this.headerHeight) {
+      if (currentScroll > this.lastScrollTop) {
+        this.header.css({
+          "position": "fixed",
+          "width": "100%",
+          "top": "-" + this.headerHeight + "px"
+        });
+        this.mainContent.css("padding-top", this.headerHeight + "px");
+      } else {
+        this.header.css("top", this.top);
+      }
+    }
+    if (window.scrollY == 0) {
+      this.header.css({
+        "position": "",
+        "width": ""
+      });
+      this.mainContent.css("padding-top", "");
+    }
+    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StickyHeader);
 
 //https://jsfiddle.net/mariusc23/s6mLJ/31/

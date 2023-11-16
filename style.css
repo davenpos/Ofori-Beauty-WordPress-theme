@@ -22,7 +22,6 @@ body.admin-bar { min-height: calc(100vh - 32px); }
 
 div#mainContent {
     flex: 1;
-    /*padding-top: 164.4px;*/
 }
 
 div.textContent { padding: 0 80px; }
@@ -45,11 +44,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 80px;
-    /*position: fixed;
-    width: 100%;*/
+    transition: top 0.3s ease-in-out;
 }
-
-body.admin-bar header { top: 32px; }
 
 header ul.menu { display: flex; }
 
