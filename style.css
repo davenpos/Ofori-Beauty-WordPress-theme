@@ -6,6 +6,11 @@ Version: 1.0.0
 */
 
 /* Basic styles */
+:root {
+    --deeppink: rgb(245, 83, 115);
+    --lightpink: rgb(239, 139, 161);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -22,16 +27,19 @@ body.admin-bar { min-height: calc(100vh - 32px); }
 
 div#mainContent {
     flex: 1;
+    margin-bottom: 8px;
 }
 
 div.textContent { padding: 0 80px; }
 
-/* Header and footer styles */
+a, a i {
+    transition: 0.3s;
+}
 
+/* Header and footer styles */
 header a, header a i, footer a, footer a i {
     text-decoration: none;
     font-size: 18px;
-    transition: 0.3s;
 }
 
 ul.menu { list-style: none; }
@@ -39,31 +47,33 @@ ul.menu { list-style: none; }
 /* Header-specific styles */
 header {
     background-color: #ffe1ee;
-    color: rgb(239, 139, 161);
+    color: var(--lightpink);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 80px;
 }
 
-header ul.menu { display: flex; }
+header ul.menu {
+    display: flex;
+    padding-left: 0;
+}
 
 header ul.menu li { margin: 0 15px; }
 
 header a, header a i {
-    color: rgb(239, 139, 161);
+    color: var(--lightpink);
 }
 
-header a:hover, header a:hover i { color: rgb(245, 83, 115); }
+header a:hover, header a:hover i { color: var(--deeppink); }
 
 header li.current-menu-item a {
-    color: rgb(245, 83, 115);
+    color: var(--deeppink);
     text-decoration: underline;
 }
 
-a.searchIcon {
-    margin-left: auto;
-}
+div.headerRight { margin-left: auto; }
+div.headerRight a { padding-left: 30px; }
 
 /* Footer-specific styles */
 footer {
@@ -114,3 +124,38 @@ div#socials {
     align-items: center;
     padding: 10px 0;
 }
+
+/* Blog post styles: */
+div.blogColumns {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+}
+
+div.textContent a, div.blogArchives a { color: var(--deeppink); }
+div.textContent a:hover { color: rgb(250, 122, 148); }
+div.textContent.blogPage a { text-shadow: 1px 1px 1.5px black; }
+
+div.textContent.blogPage { padding-right: 8px; }
+
+div.textContent h1 {
+    margin-bottom: 5px;
+}
+
+p.postMeta, p.postMeta a {
+    color: #777777;
+    text-shadow: 0.5px 0.5px 1px black !important;
+    font-size: 12px;
+    margin: 0;
+}
+
+p.postMeta a:hover { color: #aaaaaa; }
+
+/* Blog archive sidebar styles: */
+div.blogArchives {
+    background-color: rgb(252, 202, 220);
+    padding: 0 10px;
+    margin: 8px 80px 0 0;
+    border-radius: 10px;
+}
+
+div.blogArchives h2 { margin-bottom: 0; }
