@@ -202,4 +202,4 @@ body.login a { color: var(--mediumpink); }
 body.login a:hover { color: var(--deeppink); }
 
 body.login p a { color: var(--mediumgray) !important; }
-body.login p a:hover { color: var(--lightgray) !important; }
+body.login p a:hover { color: var(--darkgray) !important; }
