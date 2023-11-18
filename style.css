@@ -8,7 +8,10 @@ Version: 1.0.0
 /* Basic styles */
 :root {
     --deeppink: rgb(245, 83, 115);
-    --lightpink: rgb(239, 139, 161);
+    --mediumpink: rgb(239, 139, 161);
+    --lightpink: #ffe1ee;
+    --mediumgray: rgb(106, 95, 96);
+    --darkgray: rgb(59, 58, 58);
 }
 
 * {
@@ -32,9 +35,16 @@ div#mainContent {
 
 div.textContent { padding: 0 80px; }
 
-a, a i {
+a, a i, input[type="submit"] {
     transition: 0.3s;
 }
+
+input[type="submit"] {
+    background: var(--deeppink) !important;
+    border-color: var(--deeppink) !important;
+}
+
+input { border-radius: 0 !important; }
 
 /* Header and footer styles */
 header a, header a i, footer a, footer a i {
@@ -46,8 +56,8 @@ ul.menu { list-style: none; }
 
 /* Header-specific styles */
 header {
-    background-color: #ffe1ee;
-    color: var(--lightpink);
+    background-color: var(--lightpink);
+    color: var(--mediumpink);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,7 +72,7 @@ header ul.menu {
 header ul.menu li { margin: 0 15px; }
 
 header a, header a i {
-    color: var(--lightpink);
+    color: var(--mediumpink);
 }
 
 header a:hover, header a:hover i { color: var(--deeppink); }
@@ -97,13 +107,13 @@ footer p#smallFooterText {
 }
 
 footer, footer a, footer a i {
-    color: rgb(106, 95, 96);
+    color: var(--mediumgray);
 }
 
-footer a:hover, footer a:hover i { color: rgb(59, 58, 58); }
+footer a:hover, footer a:hover i { color: var(--darkgray); }
 
 footer li.current-menu-item a {
-    color: rgb(59, 58, 58);
+    color: var(--darkgray);
     text-decoration: underline;
 }
 
@@ -117,6 +127,12 @@ footer ul.menu {
 }
 
 footer li { padding-bottom: 20px; }
+
+footer a.logoFooter {
+    display: inline-block;
+    height: 100px;
+    width: 180px;
+}
 
 div#socials {
     display: flex;
@@ -141,21 +157,49 @@ div.textContent h1 {
     margin-bottom: 5px;
 }
 
-p.postMeta, p.postMeta a {
+p.smallBlogPostText, p.smallBlogPostText a {
     color: #777777;
     text-shadow: 0.5px 0.5px 1px black !important;
     font-size: 12px;
     margin: 0;
 }
 
-p.postMeta a:hover { color: #aaaaaa; }
+p.smallBlogPostText a { font-weight: bold; }
+
+p.smallBlogPostText a:hover { color: #aaaaaa; }
 
 /* Blog archive sidebar styles: */
-div.blogArchives {
+div.widgetSidebar {
     background-color: rgb(252, 202, 220);
-    padding: 0 10px;
+    padding: 0 10px 20px;
     margin: 8px 80px 0 0;
     border-radius: 10px;
 }
 
-div.blogArchives h2 { margin-bottom: 0; }
+div.widgetSidebar ul { margin: 0; }
+div.widgetSidebar h2 { margin-bottom: 0; }
+
+/* Login page styles */
+body.login {
+    display: inline;
+    background-color: var(--lightpink);
+}
+
+div#login h1 a {
+    height: 100px;
+    width: 180px;
+    background-size: 180px;
+    background-image: url('/wp-content/themes/oforibeautytheme/images/logo.png');
+}
+
+form#loginform {
+    margin: 0;
+    border-radius: 10px;
+    border: none;
+}
+
+body.login a { color: var(--mediumpink); }
+body.login a:hover { color: var(--deeppink); }
+
+body.login p a { color: var(--mediumgray) !important; }
+body.login p a:hover { color: var(--lightgray) !important; }

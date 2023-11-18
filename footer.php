@@ -13,7 +13,7 @@
                         <?php wp_nav_menu(array('theme_location' => 'policiesMenu'));
                     endif; ?>
                 </div>
-                <a href="<?php echo esc_url(site_url('/')); ?>">
+                <a class="logoFooter" href="<?php echo esc_url(site_url('/')); ?>">
                     <img src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo" height="100">
                 </a>
             </div>

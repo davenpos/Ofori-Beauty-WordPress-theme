@@ -11,8 +11,12 @@
             </a>
             <?php wp_nav_menu(array('theme_location' => 'topMenu')); ?>
             <div class="headerRight">
-                <a href="">Log In</a>
-                <a href="">Sign Up</a>
+                <?php if (is_user_logged_in()): ?>
+                    <a href="<?php echo wp_logout_url(); ?>">Log Out</a>
+                <?php else: ?>
+                    <a href="<?php echo wp_login_url(); ?>">Log In</a>
+                    <a href="<?php echo wp_registration_url(); ?>">Sign Up</a>
+                <?php endif; ?>
                 <a class="searchIcon" href="">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
