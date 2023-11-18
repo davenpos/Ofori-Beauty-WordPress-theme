@@ -42,9 +42,16 @@ a, a i, input[type="submit"] {
 input[type="submit"] {
     background: var(--deeppink) !important;
     border-color: var(--deeppink) !important;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-input { border-radius: 0 !important; }
+input[type="submit"]:hover { background: var(--mediumpink) !important; }
+
+input[type="text"], input[type="password"] { border-radius: 20px; }
 
 /* Header and footer styles */
 header a, header a i, footer a, footer a i {
@@ -142,10 +149,12 @@ div#socials {
 }
 
 /* Blog post styles: */
-div.blogColumns {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr;
+h1.archiveHeader {
+    color: #bbbbbb;
+    text-shadow: 1px 1px 1.5px black;
 }
+
+div.textContent.blogPage.archivePage h1:nth-of-type(2) { margin-top: 0; }
 
 div.textContent a, div.blogArchives a { color: var(--deeppink); }
 div.textContent a:hover { color: rgb(250, 122, 148); }
@@ -153,9 +162,7 @@ div.textContent.blogPage a { text-shadow: 1px 1px 1.5px black; }
 
 div.textContent.blogPage { padding-right: 8px; }
 
-div.textContent h1 {
-    margin-bottom: 5px;
-}
+div.textContent h1 { margin-bottom: 5px; }
 
 p.smallBlogPostText, p.smallBlogPostText a {
     color: #777777;
@@ -174,10 +181,15 @@ div.widgetSidebar {
     padding: 0 10px 20px;
     margin: 8px 80px 0 0;
     border-radius: 10px;
+    float: right;
+    width: 16.67%;
 }
 
 div.widgetSidebar ul { margin: 0; }
 div.widgetSidebar h2 { margin-bottom: 0; }
+
+div.widgetSidebar a { color: var(--deeppink); }
+div.widgetSidebar a:hover { color: var(--mediumpink); }
 
 /* Login page styles */
 body.login {
@@ -203,3 +215,24 @@ body.login a:hover { color: var(--deeppink); }
 
 body.login p a { color: var(--mediumgray) !important; }
 body.login p a:hover { color: var(--darkgray) !important; }
+
+/* 404 Page */
+h1#fourOhFourPage {
+    color: var(--deeppink);
+    text-align: center;
+    font-size: 64px;
+    margin-top: 15px;
+    text-shadow: 1px 1px 1.5px black;
+}
+
+/* Comments */
+div#comments {
+    border-top: 1px solid black;
+    margin-right: calc(95px + 16.67%);
+}
+
+div#comments a {
+    text-shadow: none;
+}
+
+span.required-field-message, label[for="comment"] { display: none; }
