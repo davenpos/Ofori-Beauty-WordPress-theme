@@ -74,7 +74,7 @@ function oforib_commentsDisplay($comments, $depth) {
 			'status' => 'approve',
 			'parent' => $comment->comment_ID
 		)); ?>
-		<li class="comment <?php if ($comment->comment_author != 'A WordPress Commenter') echo 'byuser comment-author-' . strtolower($comment->commentauthor) ?> <?php if ($comment->comment_author == get_the_author()) echo 'bypostauthor' ?> <?php echo (($depth - 1) % 2 == 0) ? 'even' : 'odd'; ?> depth-<?php echo $depth; ?> <?php if ($replies) echo 'parent' ?>" id="comment-<?php echo $comment->comment_ID; ?>">
+		<li class="comment <?php if ($comment->comment_author != 'A WordPress Commenter') echo 'byuser comment-author-' . strtolower($comment->comment_author) ?> <?php if ($comment->comment_author == get_the_author()) echo 'bypostauthor' ?> <?php echo (($depth - 1) % 2 == 0) ? 'even' : 'odd'; ?> depth-<?php echo $depth; ?> <?php if ($replies) echo 'parent' ?>" id="comment-<?php echo $comment->comment_ID; ?>">
 		<div id="div-comment-<?php echo $comment->comment_ID; ?>" class="comment-body">
 			<p class="commentContent"><?php echo $comment->comment_content ?></p>
 			<p class="smallBlogPostText">Commented by <?php echo $comment->comment_author; ?> on <?php echo date_create_from_format('Y-m-d H:i:s', $comment->comment_date)->format('F d, Y | g:i a'); ?>&nbsp;<a class="comment-edit-link" href="<?php echo esc_url(site_url('/wp-admin/comment.php?action=editcomment&amp;c=' . $comment->comment_ID)); ?>">(Edit)</a></p>
@@ -86,7 +86,8 @@ function oforib_commentsDisplay($comments, $depth) {
 		</div>
 		<?php if ($replies): ?>
 			<ul class="children">
-				<?php oforib_commentsDisplay($replies, $depth++); ?>
+				<?php $depth++;
+				oforib_commentsDisplay($replies, $depth); ?>
 			</ul>
 		<?php endif; ?>
 	<?php endforeach;
