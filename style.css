@@ -229,6 +229,7 @@ h1#fourOhFourPage {
 div#comments {
     border-top: 1px solid black;
     margin-right: calc(95px + 16.67%);
+    font-size: small;
 }
 
 div#comments a {
@@ -236,3 +237,13 @@ div#comments a {
 }
 
 span.required-field-message, label[for="comment"] { display: none; }
+
+ul.comment-list, ul.children { list-style: none; }
+ul.comment-list { padding-left: 0; }
+ul.children {
+    padding: 15px 0 0 30px;
+}
+
+div.reply, a.comment-edit-link { font-weight: bold; }
+
+p.commentContent { margin: 0; }
