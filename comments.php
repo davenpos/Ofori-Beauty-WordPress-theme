@@ -35,14 +35,14 @@ endif;
 		
 		<?php if (get_comment_pages_count() > 1 && get_option('page_comments')): ?>
 			<nav class="navigation comment-navigation" role="navigation">
-				<h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'oforibeautytheme' ); ?></h1>
-				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'oforibeautytheme' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'oforibeautytheme' ) ); ?></div>
+				<h1 class="screen-reader-text section-heading"><?php _e('Comment navigation', 'oforibeautytheme'); ?></h1>
+				<div class="nav-previous"><?php previous_comments_link(__('&larr; Older Comments', 'oforibeautytheme')); ?></div>
+				<div class="nav-next"><?php next_comments_link( __('Newer Comments &rarr;', 'oforibeautytheme') ); ?></div>
 			</nav>
 		<?php endif;
 
 		if (!comments_open() && get_comments_number()): ?>
-			<p class="no-comments"><?php _e( 'Comments are closed.', 'oforibeautytheme' ); ?></p>
+			<p class="no-comments"><?php _e('Comments are closed.', 'oforibeautytheme'); ?></p>
 		<?php endif;
 	else: ?>
 		<h3 class="comments-title">No comments on this post.</h3>

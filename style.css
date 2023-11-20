@@ -92,6 +92,8 @@ header li.current-menu-item a {
 div.headerRight { margin-left: auto; }
 div.headerRight a { padding-left: 30px; }
 
+img.siteLogo { height: 100px; }
+
 /* Footer-specific styles */
 footer {
     background-color: #f6ced2;
@@ -241,9 +243,10 @@ span.required-field-message, label[for="comment"] { display: none; }
 ul.comment-list, ul.children { list-style: none; }
 ul.comment-list { padding-left: 0; }
 ul.children {
-    padding: 15px 0 0 30px;
+    padding-left: 30px;
 }
 
 div.reply, a.comment-edit-link { font-weight: bold; }
+div.reply { margin-bottom: 15px; }
 
 p.commentContent { margin: 0; }

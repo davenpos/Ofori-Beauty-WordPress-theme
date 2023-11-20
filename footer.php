@@ -14,7 +14,7 @@
                     endif; ?>
                 </div>
                 <a class="logoFooter" href="<?php echo esc_url(site_url('/')); ?>">
-                    <img src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo" height="100">
+                    <img class="siteLogo" src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo" height="100">
                 </a>
             </div>
             <div id="socials">

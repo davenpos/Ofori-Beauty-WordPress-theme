@@ -65,8 +65,6 @@ function oforib_loginScreenCSS() {
 
 add_action('login_enqueue_scripts', 'oforib_loginScreenCSS');
 
-//$comment->comment_author == 'A WordPress Commenter'
-
 function oforib_commentsDisplay($comments, $depth) {
 	foreach ($comments as $comment):
 		$commentsQuery = new WP_Comment_Query();
@@ -77,7 +75,7 @@ function oforib_commentsDisplay($comments, $depth) {
 		<li class="comment <?php if ($comment->comment_author != 'A WordPress Commenter') echo 'byuser comment-author-' . strtolower($comment->comment_author) ?> <?php if ($comment->comment_author == get_the_author()) echo 'bypostauthor' ?> <?php echo (($depth - 1) % 2 == 0) ? 'even' : 'odd'; ?> depth-<?php echo $depth; ?> <?php if ($replies) echo 'parent' ?>" id="comment-<?php echo $comment->comment_ID; ?>">
 		<div id="div-comment-<?php echo $comment->comment_ID; ?>" class="comment-body">
 			<p class="commentContent"><?php echo $comment->comment_content ?></p>
-			<p class="smallBlogPostText">Commented by <?php echo $comment->comment_author; ?> on <?php echo date_create_from_format('Y-m-d H:i:s', $comment->comment_date)->format('F d, Y | g:i a'); ?>&nbsp;<a class="comment-edit-link" href="<?php echo esc_url(site_url('/wp-admin/comment.php?action=editcomment&amp;c=' . $comment->comment_ID)); ?>">(Edit)</a></p>
+			<p class="smallBlogPostText">Commented by <?php echo $comment->comment_author; ?> on <?php echo date_create_from_format('Y-m-d H:i:s', $comment->comment_date)->format('F d, Y | g:i a'); ?></p>
 			<div class="reply">
 				<a rel="nofollow" class="comment-reply-link" href="<?php echo get_permalink(get_the_ID()) . '/?replytocom=' . $comment->comment_ID . '#respond'; ?>" data-commentid="<?php echo $comment->comment_ID; ?>" data-postid="<?php echo $comment->comment_ID; ?>" data-belowelement="div-comment-<?php echo $comment->comment_ID; ?>" data-respondelement="respond" data-replyto="Reply to <?php echo $comment->comment_author; ?>" aria-label="Reply to <?php echo $comment->comment_author; ?>">
 					Reply
@@ -92,3 +90,19 @@ function oforib_commentsDisplay($comments, $depth) {
 		<?php endif; ?>
 	<?php endforeach;
 }
+
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+add_filter('woocommerce_cart_item_thumbnail', '__return_empty_string');
+
+//Not working
+/*function oforib_removeAccountMenuLinks($menuItems) {
+	unset($menuItems['Download']);
+	unset($menuItems['Logout']);
+
+	return $menuItems;
+}
+
+add_filter('woocommerce_account_menu_items', 'oforib_removeAccountMenuLinks');*/
