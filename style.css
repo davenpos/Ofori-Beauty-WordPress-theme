@@ -35,18 +35,19 @@ div#mainContent {
 
 div.textContent { padding: 0 80px; }
 
-a, a i, input[type="submit"] {
+a, a i, input[type="submit"], button[type="submit"] {
     transition: 0.3s;
 }
 
-input[type="submit"] {
+input[type="submit"], button[type="submit"] {
     background: var(--deeppink) !important;
     border-color: var(--deeppink) !important;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 3px;
-    cursor: pointer;
+    color: white !important;
+    border: none !important;
+    padding: 12px !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+    font-weight: normal !important;
 }
 
 input[type="submit"]:hover { background: var(--mediumpink) !important; }

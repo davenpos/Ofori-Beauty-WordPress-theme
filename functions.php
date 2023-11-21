@@ -95,7 +95,8 @@ remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_l
 remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
-add_filter('woocommerce_cart_item_thumbnail', '__return_empty_string');
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+//add_filter('woocommerce_cart_item_thumbnail', '__return_empty_string');
 
 //Not working
 /*function oforib_removeAccountMenuLinks($menuItems) {
@@ -106,3 +107,12 @@ add_filter('woocommerce_cart_item_thumbnail', '__return_empty_string');
 }
 
 add_filter('woocommerce_account_menu_items', 'oforib_removeAccountMenuLinks');*/
+
+function oforib_ignoreCertainFiles($exclude_filters) {
+	$exclude_filters[] = 'oforibeautytheme/node_modules';
+	$exclude_filters[] = 'oforibeautytheme/.git';
+	$exclude_filters[] = 'oforibeautytheme/.gitignore';
+	return $exclude_filters;
+}
+
+add_filter('ai1wm_exclude_themes_from_export', 'oforib_ignoreCertainFiles');
