@@ -31,7 +31,11 @@
                 <p class="smallBlogPostText">Posted by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author(); ?></a><?php echo ($categories) ? ' under ' . trim($categoryList, ', ') : ''; ?> on <?php the_time('F j, Y'); ?></p>
                 <p><?php the_excerpt(); ?></p>
             <?php endwhile; ?>
-            <p class="smallBlogPostText"><?php echo paginate_links(); ?></p>
+            <nav id="blogPostPagination"><?php echo paginate_links(array(
+                'prev_text' => '&larr;',
+                'next_text' => '&rarr;',
+                'type' => 'list'
+            )); ?></nav>
         <?php else: ?>
             <p>No posts found.</p>
         <?php endif; ?>

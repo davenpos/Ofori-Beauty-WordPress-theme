@@ -31,16 +31,21 @@ function oforib_addWidgetSidebar() {
 
 add_action('widgets_init', 'oforib_addWidgetSidebar');
 
-function oforib_redirectSubscribers() {
+function oforib_redirectUsers() {
 	$currentUserRoles = wp_get_current_user()->roles;
 
 	if (count($currentUserRoles) == 1 && $currentUserRoles[0] == 'subscriber'):
 		wp_redirect(site_url('/'));
 		exit;
 	endif;
+
+	if (!is_user_logged_in() && $_SERVER['PHP_SELF'] != '/wp-admin/admin-ajax.php' && (is_page('account') || is_page('cart'))):
+		wp_redirect(wp_login_url()); //Not working
+		exit;
+	endif;
 }
 
-add_action('admin_init', 'oforib_redirectSubscribers');
+add_action('admin_init', 'oforib_redirectUsers');
 
 function oforib_removeAdminBar() {
 	$currentUserRoles = wp_get_current_user()->roles;
@@ -91,19 +96,16 @@ function oforib_commentsDisplay($comments, $depth) {
 	<?php endforeach;
 }
 
-remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
-remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
-remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
-remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
-remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
-//add_filter('woocommerce_cart_item_thumbnail', '__return_empty_string');
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 
-//Not working
-/*function oforib_removeAccountMenuLinks($menuItems) {
-	unset($menuItems['Download']);
-	unset($menuItems['Logout']);
+//Try uncommenting this out
+/*function oforib_removeAccountMenuLinks($menu_links) {
+	unset($menu_links['Download']);
+	unset($menu_links['Logout']);
 
-	return $menuItems;
+	return $menu_links;
 }
 
 add_filter('woocommerce_account_menu_items', 'oforib_removeAccountMenuLinks');*/
@@ -116,3 +118,5 @@ function oforib_ignoreCertainFiles($exclude_filters) {
 }
 
 add_filter('ai1wm_exclude_themes_from_export', 'oforib_ignoreCertainFiles');
+
+//https://github.com/woocommerce/woocommerce/tree/trunk/plugins/woocommerce/templates

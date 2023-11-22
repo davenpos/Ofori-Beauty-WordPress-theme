@@ -70,6 +70,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 80px;
+    z-index: 100;
 }
 
 header ul.menu {
@@ -178,11 +179,40 @@ p.smallBlogPostText a { font-weight: bold; }
 
 p.smallBlogPostText a:hover { color: #aaaaaa; }
 
+nav#blogPostPagination { text-align: center; }
+
+nav#blogPostPagination ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
+}
+
+nav#blogPostPagination li {
+    float: left;
+    padding: 8px 0;
+}
+
+nav#blogPostPagination li * { padding: 8px; }
+
+nav#blogPostPagination li { border: 1px solid #cfc8d8; }
+nav#blogPostPagination li:not(:last-of-type) { border-right: none; }
+
+nav#blogPostPagination li a {
+    text-shadow: none;
+    text-decoration: none;
+}
+
+span.page-numbers.current {
+    background: var(--lightpink) !important;
+    color: var(--mediumgray) !important;
+}
+
 /* Blog archive sidebar styles: */
 div.widgetSidebar {
     background-color: rgb(252, 202, 220);
     padding: 0 10px 20px;
-    margin: 8px 80px 0 0;
+    margin-right: 80px;
     border-radius: 10px;
     float: right;
     width: 16.67%;
@@ -251,3 +281,13 @@ div.reply, a.comment-edit-link { font-weight: bold; }
 div.reply { margin-bottom: 15px; }
 
 p.commentContent { margin: 0; }
+
+/* Services styles */
+div.serviceDescription p:last-of-type { margin-bottom: 5px; }
+
+p.price {
+    margin-top: 0;
+    color: limegreen;
+    font-size: 12px;
+    text-shadow: 0.5px 0.5px 1px;
+}
