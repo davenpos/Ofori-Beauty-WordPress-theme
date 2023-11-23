@@ -14,14 +14,14 @@
                 <?php if (is_user_logged_in()): ?>
                     <a href="<?php echo esc_url(site_url('/account')); ?>">Account</a>
                     <a href="<?php echo wp_logout_url(); ?>">Log Out</a>
-                    <a class="searchIcon" href="<?php echo esc_url(site_url('/cart')); ?>">
+                    <a href="<?php echo esc_url(site_url('/cart')); ?>">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </a>
                 <?php else: ?>
                     <a href="<?php echo wp_login_url(); ?>">Log In</a>
                     <a href="<?php echo wp_registration_url(); ?>">Sign Up</a>
                 <?php endif; ?>
-                <a class="searchIcon" href="">
+                <a id="searchButton" href="">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
             </div>

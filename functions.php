@@ -31,21 +31,16 @@ function oforib_addWidgetSidebar() {
 
 add_action('widgets_init', 'oforib_addWidgetSidebar');
 
-function oforib_redirectUsers() {
+function oforib_redirectSubscribers() {
 	$currentUserRoles = wp_get_current_user()->roles;
 
 	if (count($currentUserRoles) == 1 && $currentUserRoles[0] == 'subscriber'):
 		wp_redirect(site_url('/'));
 		exit;
 	endif;
-
-	if (!is_user_logged_in() && $_SERVER['PHP_SELF'] != '/wp-admin/admin-ajax.php' && (is_page('account') || is_page('cart'))):
-		wp_redirect(wp_login_url()); //Not working
-		exit;
-	endif;
 }
 
-add_action('admin_init', 'oforib_redirectUsers');
+add_action('admin_init', 'oforib_redirectSubscribers');
 
 function oforib_removeAdminBar() {
 	$currentUserRoles = wp_get_current_user()->roles;
@@ -95,6 +90,15 @@ function oforib_commentsDisplay($comments, $depth) {
 		<?php endif; ?>
 	<?php endforeach;
 }
+
+function oforib_redirectLoggedOutShoppers() {
+	if (!is_user_logged_in() && (is_account_page() || is_cart() || is_checkout())):
+		wp_redirect(wp_login_url());
+		exit;
+	endif;
+}
+
+add_action('template_redirect', 'oforib_redirectLoggedOutShoppers');
 
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);

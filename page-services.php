@@ -4,6 +4,6 @@
         <h1><?php the_title(); ?></h1>
         <p><?php the_content(); ?></p>
     <?php endwhile; ?>
-    <p class="smallBlogPostText"><?php echo paginate_links(); ?></p>
+    <?php echo paginate_links(); ?>
 </div>
 <?php get_footer(); ?>

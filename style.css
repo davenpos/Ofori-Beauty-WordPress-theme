@@ -33,9 +33,9 @@ div#mainContent {
     margin-bottom: 8px;
 }
 
-div.textContent { padding: 0 80px; }
+div.textContent, div#searchOverlay { padding: 0 80px; }
 
-a, a i, input[type="submit"], button[type="submit"] {
+a, a i, input[type="submit"], button[type="submit"], i.fa.fa-window-close.fa-3x {
     transition: 0.3s;
 }
 
@@ -44,13 +44,12 @@ input[type="submit"], button[type="submit"] {
     border-color: var(--deeppink) !important;
     color: white !important;
     border: none !important;
-    padding: 12px !important;
     border-radius: 3px !important;
     cursor: pointer !important;
     font-weight: normal !important;
 }
 
-input[type="submit"]:hover { background: var(--mediumpink) !important; }
+input[type="submit"]:hover, button { background: var(--mediumpink) !important; }
 
 input[type="text"], input[type="password"] { border-radius: 20px; }
 
@@ -179,6 +178,7 @@ p.smallBlogPostText a { font-weight: bold; }
 
 p.smallBlogPostText a:hover { color: #aaaaaa; }
 
+/* Pagination styles */
 nav#blogPostPagination { text-align: center; }
 
 nav#blogPostPagination ul {
@@ -208,12 +208,16 @@ span.page-numbers.current {
     color: var(--mediumgray) !important;
 }
 
+/* Rounded containers */
+div.widgetSidebar, div#liveSearchResults {
+    background-color: rgb(252, 202, 220);
+    border-radius: 10px;
+}
+
 /* Blog archive sidebar styles: */
 div.widgetSidebar {
-    background-color: rgb(252, 202, 220);
-    padding: 0 10px 20px;
+    padding: 0 10px 20px 10px;
     margin-right: 80px;
-    border-radius: 10px;
     float: right;
     width: 16.67%;
 }
@@ -291,3 +295,59 @@ p.price {
     font-size: 12px;
     text-shadow: 0.5px 0.5px 1px;
 }
+
+button.single_add_to_cart_button { padding: 12px !important; }
+
+/* Live search overlay */
+div#searchOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    background-color: rgba(245, 83, 115, 0.75);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.admin-bar div#searchOverlay { top: 32px; }
+
+div#searchOverlay.searchActive {
+    visibility: visible;
+    opacity: 1;
+}
+
+div#searchOverlay input.searchTerm {
+    width: 90%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 24px;
+}
+
+i.fa.fa-window-close.fa-3x {
+    position: absolute;
+    right: 20px;
+    color: red;
+    text-shadow: 0.5px 0.5px 1px black;
+    cursor: pointer;
+}
+
+i.fa.fa-window-close.fa-3x:hover { filter: brightness(90%); }
+
+div#liveSearchResults {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    top: 72px;
+    width: calc(100% - 160px);
+    margin-top: 10px;
+    height: calc(100% - 93px);
+}
+
+div#searchOverlay.searchActive div#liveSearchResults { display: block; }
