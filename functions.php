@@ -4,10 +4,7 @@ function oforib_filesForSite() {
 	wp_enqueue_style('font_awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 	wp_enqueue_style('custom_font', '//fonts.googleapis.com/css2?family=Roboto&display=swap');
 	wp_enqueue_script('main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
-	/*wp_localize_script('main-js', 'siteData', array(
-		'root_url' => get_site_url(),
-		'nonce' => wp_create_nonce('wp_rest')
-	));*/
+	wp_localize_script('main-js', 'siteData', array('url' => get_site_url()));
 }
 
 add_action('wp_enqueue_scripts', 'oforib_filesForSite');
@@ -103,6 +100,18 @@ add_action('template_redirect', 'oforib_redirectLoggedOutShoppers');
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+function oforib_removeWooCommerceCustomization($wp_customize) {
+	$wp_customize->remove_section('woocommerce_product_images');
+	$wp_customize->remove_setting('woocommerce_shop_page_display');
+	$wp_customize->remove_control('woocommerce_shop_page_display');
+	$wp_customize->remove_setting('woocommerce_category_archive_display');
+	$wp_customize->remove_control('woocommerce_category_archive_display');
+	$wp_customize->remove_setting('woocommerce_catalog_columns');
+	$wp_customize->remove_control('woocommerce_catalog_columns');
+}
+
+add_action('customize_register', 'oforib_removeWooCommerceCustomization');
 
 //Try uncommenting this out
 /*function oforib_removeAccountMenuLinks($menu_links) {

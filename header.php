@@ -7,7 +7,7 @@
 	<body <?php body_class(); ?>>
         <header>
             <a href="<?php echo esc_url(site_url('/')); ?>">
-                <img class="siteLogo" src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo" height="100">
+                <img class="siteLogo" src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo">
             </a>
             <?php wp_nav_menu(array('theme_location' => 'topMenu')); ?>
             <div class="headerRight">

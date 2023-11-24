@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class LiveSearch {
   constructor() {
+    this.searchHTML();
     this.searchButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#searchButton');
     this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('i.fa.fa-window-close.fa-3x');
     this.searchOverlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()('div#searchOverlay');
@@ -41,7 +42,9 @@ class LiveSearch {
       "overflow": "hidden"
     });
     this.searchOverlay.addClass("searchActive");
-    this.searchBar.trigger('focus');
+    this.searchBar.val('');
+    this.searchResultsDiv.html('');
+    setTimeout(() => this.searchBar.trigger('focus'), 301);
     this.overlayOpen = true;
     return false;
   }
@@ -53,6 +56,15 @@ class LiveSearch {
     });
     setTimeout(() => this.searchOverlay.removeClass("searchActive"), 300);
     this.overlayOpen = false;
+  }
+  searchHTML() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()("body").append(`
+            <div id="searchOverlay">
+                <input type="text" class="searchTerm live" placeholder="Search for..." autocomplete="off">
+                <i class="fa fa-window-close fa-3x" aria-hidden="true"></i>
+                <div id="liveSearchResults"></div>
+            </div>
+        `);
   }
   keyPress(e) {
     if (e.keyCode == 27 && this.overlayOpen && !jquery__WEBPACK_IMPORTED_MODULE_0___default()("input, textarea").is(':focus')) {
@@ -76,8 +88,24 @@ class LiveSearch {
     this.previousValue = this.searchBar.val();
   }
   getSearchResults() {
-    this.searchResultsDiv.html("There should be search results here");
-    this.spinnerVisible = false;
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().getJSON(siteData.url + '/wp-json/wp/v2/posts?search=' + this.searchBar.val(), postResults => {
+      this.searchResultsDiv.html(`
+                <div class="threeColumns">
+                    <div>
+                        <h2>Blog Posts</h2>
+                        ${postResults.length ? '' : '<p>No blog posts found</p>'}
+                        ${postResults.map(item => `<h3><a href="${item.link}">${item.title.rendered}</a></h3>`).join('')}
+                    </div>
+                    <div>
+                        <h2>Pages</h2>
+                    </div>
+                    <div>
+                        <h2>Services</h2>
+                    </div>
+                </div>
+            `);
+      this.spinnerVisible = false;
+    });
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LiveSearch);

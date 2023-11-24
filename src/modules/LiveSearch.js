@@ -2,6 +2,7 @@ import $ from 'jquery'
 
 class LiveSearch {
     constructor() {
+        this.searchHTML()
         this.searchButton = $('#searchButton')
         this.closeButton = $('i.fa.fa-window-close.fa-3x')
         this.searchOverlay = $('div#searchOverlay')
@@ -28,7 +29,9 @@ class LiveSearch {
             "overflow": "hidden"
         })
         this.searchOverlay.addClass("searchActive")
-        this.searchBar.trigger('focus')
+        this.searchBar.val('')
+        this.searchResultsDiv.html('')
+        setTimeout(() => this.searchBar.trigger('focus'), 301)
         this.overlayOpen = true
         return false
     }
@@ -41,6 +44,16 @@ class LiveSearch {
         })
         setTimeout(() => this.searchOverlay.removeClass("searchActive"), 300)
         this.overlayOpen = false
+    }
+
+    searchHTML() {
+        $("body").append(`
+            <div id="searchOverlay">
+                <input type="text" class="searchTerm live" placeholder="Search for..." autocomplete="off">
+                <i class="fa fa-window-close fa-3x" aria-hidden="true"></i>
+                <div id="liveSearchResults"></div>
+            </div>
+        `)
     }
 
     keyPress(e) {
@@ -67,8 +80,24 @@ class LiveSearch {
     }
 
     getSearchResults() {
-        this.searchResultsDiv.html("There should be search results here")
-        this.spinnerVisible = false
+        $.getJSON(siteData.url + '/wp-json/wp/v2/posts?search=' + this.searchBar.val(), postResults => {
+            this.searchResultsDiv.html(`
+                <div class="threeColumns">
+                    <div>
+                        <h2>Blog Posts</h2>
+                        ${postResults.length ? '' : '<p>No blog posts found</p>'}
+                        ${postResults.map(item => `<h3><a href="${item.link}">${item.title.rendered}</a></h3>`).join('')}
+                    </div>
+                    <div>
+                        <h2>Pages</h2>
+                    </div>
+                    <div>
+                        <h2>Services</h2>
+                    </div>
+                </div>
+            `)
+            this.spinnerVisible = false
+        })
     }
 }
 

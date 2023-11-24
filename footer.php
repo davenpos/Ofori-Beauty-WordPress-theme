@@ -1,6 +1,6 @@
         </div>
         <footer>
-            <div id="threeColumns">
+            <div class="threeColumns">
                 <div>
                     <?php if (count(wp_get_nav_menu_items('Resources'))): ?>
                         <h2>Resources</h2>
@@ -22,11 +22,6 @@
             </div>
             <p id="smallFooterText">&copy; <?php echo date("Y"); ?> Ofori Beauty<br>WordPress site created by Simeon Davenport</p>
 		</footer>
-        <div id="searchOverlay">
-            <input type="text" class="searchTerm live" placeholder="Search for..." autocomplete="off">
-            <i class="fa fa-window-close fa-3x" aria-hidden="true"></i>
-            <div id="liveSearchResults"></div>
-        </div>
 		<?php wp_footer(); ?>
 	</body>
 </html>
