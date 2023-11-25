@@ -12,6 +12,7 @@ Version: 1.0.0
     --softpink: rgb(250, 122, 148);
     --lightpink: #ffe1ee;
     --plum: rgb(245, 0, 160);
+    --semitransparentdeeppink: rgba(245, 83, 115, 0.75);
     --mediumgray: rgb(106, 95, 96);
     --darkgray: rgb(59, 58, 58);
 }
@@ -37,7 +38,7 @@ div#mainContent {
 
 div.textContent, div#searchOverlay { padding: 0 80px; }
 
-a, a i, input[type="submit"], button[type="submit"], i.fa.fa-window-close.fa-3x {
+a, a i, input[type="submit"], button[type="submit"], i#closeSearch {
     transition: 0.3s;
 }
 
@@ -68,20 +69,26 @@ header {
     background-color: var(--lightpink);
     color: var(--mediumpink);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 15px 80px;
     z-index: 100;
 }
 
+header nav#headerMenu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 header ul.menu {
     display: flex;
+    align-items: center;
     padding-left: 0;
 }
 
 header ul.menu li { margin: 0 10px; }
 
-header a, header a i {
+header a, header a i, i.fa.fa-bars.headerRight {
     color: var(--deeppink);
 }
 
@@ -92,10 +99,24 @@ header li.current-menu-item a, header li.current_page_parent a {
     text-decoration: underline;
 }
 
-div.headerRight { margin-left: auto; }
-div.headerRight a { padding-left: 20px; }
+.headerRight { padding-left: 20px; }
+
+.headerRight ~ .headerRight { margin-left: 0; }
+.headerRight {
+    margin-left: auto;
+    padding-left: 20px;
+}
+
+i.fa.fa-bars.headerRight {
+    visibility: hidden;
+    padding: 0;
+    width: 0;
+    cursor: pointer;
+}
 
 img.siteLogo { height: 80px; }
+
+i#closeMenu { display: none; }
 
 /* Footer-specific styles */
 footer {
@@ -324,7 +345,7 @@ div#searchOverlay {
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    background-color: rgba(245, 83, 115, 0.75);
+    background-color: var(--semitransparentdeeppink);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -343,15 +364,16 @@ div#searchOverlay input.searchTerm {
     font-size: 24px;
 }
 
-i.fa.fa-window-close.fa-3x {
+i.fa.fa-window-close {
     position: absolute;
-    right: 20px;
     color: red;
     text-shadow: 0.5px 0.5px 1px black;
     cursor: pointer;
 }
 
-i.fa.fa-window-close.fa-3x:hover { filter: brightness(90%); }
+i.fa.fa-window-close:hover { filter: brightness(90%); }
+
+i#closeSearch { right: 20px; }
 
 div#liveSearchResults {
     position: absolute;
@@ -383,3 +405,59 @@ div#liveSearchResults h3 a {
 div#liveSearchResults h3 a:hover { color: var(--softpink); }
 
 h3 span.smallBlogPostText { font-weight: normal; }
+
+/* Mobile view */
+@media (max-width: 925px) {
+	i.fa.fa-bars.headerRight {
+        visibility: visible;
+        width: auto;
+        padding-left: 20px;
+    }
+
+    header nav#headerMenu {
+        position: absolute;
+        left: 0;
+        padding: 10px;
+        background-color: var(--semitransparentdeeppink);
+        transition: top 0.3s ease-in-out;
+    }
+
+    header nav#headerMenu a {
+        color: var(--lightpink);
+        display: table-row;
+    }
+
+    nav#headerMenu li.current-menu-item a, nav#headerMenu li.current_page_parent a, nav#headerMenu a:hover {
+        color: var(--plum);
+        text-shadow: 0.25px 0.25px 0.5px black;
+    }
+
+    header nav#headerMenu, header nav#headerMenu * {
+        display: block;
+        margin: 0;
+    }
+
+    nav a.headerRight {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    i#closeMenu {
+        display: block;
+        right: 10px;
+    }
+
+    /*header ul.menu, a.nonIcon {
+        visibility: none;
+    }*/
+}
+
+/* Styles accounting for the times when the admin bar is 46px tall */
+@media (max-width: 782px) {
+    body.admin-bar { min-height: calc(100vh - 46px); }
+    body.admin-bar div#searchOverlay, body.admin-bar header nav#headerMenu { top: 46px; }
+}
+
+/*
+https://www.w3schools.com/cssref/tryit.php?filename=trycss3_order
+*/

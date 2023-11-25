@@ -4,7 +4,7 @@ class LiveSearch {
     constructor() {
         this.searchHTML()
         this.searchButton = $('#searchButton')
-        this.closeButton = $('i.fa.fa-window-close.fa-3x')
+        this.closeButton = $('i#closeSearch')
         this.searchOverlay = $('div#searchOverlay')
         this.searchBar = $('.searchTerm.live')
         this.searchResultsDiv = $('#liveSearchResults')
@@ -50,7 +50,7 @@ class LiveSearch {
         $("body").append(`
             <div id="searchOverlay">
                 <input type="text" class="searchTerm live" placeholder="Search for..." autocomplete="off">
-                <i class="fa fa-window-close fa-3x" aria-hidden="true"></i>
+                <i id="closeSearch" class="fa fa-window-close fa-3x" aria-hidden="true"></i>
                 <div id="liveSearchResults"></div>
             </div>
         `)

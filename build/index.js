@@ -19,7 +19,7 @@ class LiveSearch {
   constructor() {
     this.searchHTML();
     this.searchButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#searchButton');
-    this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('i.fa.fa-window-close.fa-3x');
+    this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('i#closeSearch');
     this.searchOverlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()('div#searchOverlay');
     this.searchBar = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.searchTerm.live');
     this.searchResultsDiv = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#liveSearchResults');
@@ -61,7 +61,7 @@ class LiveSearch {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()("body").append(`
             <div id="searchOverlay">
                 <input type="text" class="searchTerm live" placeholder="Search for..." autocomplete="off">
-                <i class="fa fa-window-close fa-3x" aria-hidden="true"></i>
+                <i id="closeSearch" class="fa fa-window-close fa-3x" aria-hidden="true"></i>
                 <div id="liveSearchResults"></div>
             </div>
         `);
@@ -116,6 +116,71 @@ class LiveSearch {
 
 /***/ }),
 
+/***/ "./src/modules/MobileMenu.js":
+/*!***********************************!*\
+  !*** ./src/modules/MobileMenu.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+class MobileMenu {
+  constructor() {
+    this.menuButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('i.fa.fa-bars');
+    this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('i#closeMenu');
+    this.navMenu = jquery__WEBPACK_IMPORTED_MODULE_0___default()('nav#headerMenu');
+    this.navPosition = 0;
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() < 782) {
+        this.top = 46;
+      } else {
+        this.top = 32;
+      }
+    }
+    alert(this.navMenu.outerHeight());
+    this.hiddenPosition = this.top - this.navMenu.outerHeight();
+    this.navMenu.css('top', this.hiddenPosition + 'px');
+    this.events();
+  }
+  events() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize", () => this.navMenu.css('top', this.navMenu.outerHeight() + 'px'));
+    //$(window).on("scroll", () => this.navTop())
+    this.menuButton.on("click", () => this.openMobileMenu());
+    this.closeButton.on("click", () => this.closeMobileMenu());
+  }
+  openMobileMenu() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').css({
+      "height": "100%",
+      "overflow": "hidden"
+    });
+    this.navMenu.css('top', this.top);
+  }
+  closeMobileMenu() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').css({
+      "height": "",
+      "overflow": ""
+    });
+    this.navMenu.css('top', this.hiddenPosition + 'px');
+  }
+
+  /*navTop() {
+      if ($(window).scrollTop() > $('header').outerHeight()) {
+          this.top = 0
+      } else {
+          this.setTop()
+      }
+  }*/
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MobileMenu);
+
+/***/ }),
+
 /***/ "./src/modules/StickyHeader.js":
 /*!*************************************!*\
   !*** ./src/modules/StickyHeader.js ***!
@@ -135,7 +200,11 @@ class StickyHeader {
     this.headerHeight = this.header.outerHeight();
     this.top = 0;
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
-      this.top = 32;
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() < 782) {
+        this.top = 46;
+      } else {
+        this.top = 32;
+      }
     }
     this.mainContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('div#mainContent');
     this.lastScrollTop;
@@ -263,10 +332,13 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_StickyHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/StickyHeader */ "./src/modules/StickyHeader.js");
 /* harmony import */ var _modules_LiveSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/LiveSearch */ "./src/modules/LiveSearch.js");
+/* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
+
 
 
 var stickyHeader = new _modules_StickyHeader__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var liveSearch = new _modules_LiveSearch__WEBPACK_IMPORTED_MODULE_1__["default"]();
+var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_2__["default"]();
 })();
 
 /******/ })()

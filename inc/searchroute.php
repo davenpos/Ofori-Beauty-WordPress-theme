@@ -23,7 +23,7 @@ function oforib_registerSearch() {
                         'permalink' => get_the_permalink(),
                         'authorName' => get_the_author()
                     ));
-                elseif (get_post_type() == 'page' && (!is_front_page() && !is_home() && !is_account_page() && !is_cart() && !is_checkout() && !is_shop() && get_the_ID() != 20)): //Still includes pages I don't want barring Search page
+                elseif (get_post_type() == 'page' && get_the_ID() != 30 && get_the_ID() != 18 && get_the_ID() != 50 && get_the_ID() != 48 && get_the_ID() != 49 && get_the_ID() != 12 && get_the_ID() != 20):
                     array_push($searchResults['pages'], array(
                         'title' => get_the_title(),
                         'permalink' => get_the_permalink()

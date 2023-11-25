@@ -9,21 +9,24 @@
             <a href="<?php echo esc_url(site_url('/')); ?>">
                 <img class="siteLogo" src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo">
             </a>
+            <nav id="headerMenu">
+            <i id="closeMenu" class="fa fa-window-close fa-2x" aria-hidden="true"></i>
             <?php wp_nav_menu(array('theme_location' => 'topMenu')); ?>
-            <div class="headerRight">
-                <?php if (is_user_logged_in()): ?>
-                    <a href="<?php echo esc_url(site_url('/account')); ?>">Account</a>
-                    <a href="<?php echo wp_logout_url(); ?>">Log Out</a>
-                    <a href="<?php echo esc_url(site_url('/cart')); ?>">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    </a>
-                <?php else: ?>
-                    <a href="<?php echo wp_login_url(); ?>">Log In</a>
-                    <a href="<?php echo wp_registration_url(); ?>">Sign Up</a>
-                <?php endif; ?>
-                <a id="searchButton" href="">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+            <?php if (is_user_logged_in()): ?>
+                <a href="<?php echo esc_url(site_url('/account')); ?>" class="headerRight nonIcon">Account</a>
+                <a href="<?php echo wp_logout_url(); ?>" class="headerRight nonIcon">Log Out</a>
+                </nav>
+                <a href="<?php echo esc_url(site_url('/cart')); ?>" class="headerRight">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 </a>
-            </div>
+            <?php else: ?>
+                <a href="<?php echo wp_login_url(); ?>" class="headerRight nonIcon">Log In</a>
+                <a href="<?php echo wp_registration_url(); ?>" class="headerRight nonIcon">Sign Up</a>
+                </nav>
+            <?php endif; ?>
+            <i class="fa fa-bars headerRight" aria-hidden="true"></i>
+            <a id="searchButton" href="" class="headerRight">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
         </header>
         <div id="mainContent">

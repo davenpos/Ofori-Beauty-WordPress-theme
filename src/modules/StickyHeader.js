@@ -6,7 +6,11 @@ class StickyHeader {
         this.headerHeight = this.header.outerHeight()
         this.top = 0
         if ($('body').hasClass("admin-bar")) {
-            this.top = 32
+            if ($(window).width() < 782) {
+                this.top = 46
+            } else {
+                this.top = 32
+            }
         }
         this.mainContent = $('div#mainContent')
         this.lastScrollTop
