@@ -87,7 +87,7 @@ header a, header a i {
 
 header a:hover, header a:hover i { color: var(--plum); }
 
-header li.current-menu-item a {
+header li.current-menu-item a, header li.current_page_parent a {
     color: var(--plum);
     text-decoration: underline;
 }
@@ -125,6 +125,7 @@ footer, footer a, footer a i {
 
 footer a:hover, footer a:hover i { color: var(--darkgray); }
 
+footer ul.menu li { padding-bottom: 12px; }
 footer ul.menu li:last-of-type { padding-bottom: 0; }
 
 footer li.current-menu-item a {
@@ -164,7 +165,7 @@ h1.archiveHeader {
 
 div.textContent.blogPage.archivePage h1:nth-of-type(2) { margin-top: 0; }
 
-div.textContent a, div.blogArchives a { color: var(--deeppink); }
+div.textContent :not(p.smallBlogPostText) a, div.blogArchives a { color: var(--deeppink); }
 div.textContent a:hover { color: var(--softpink); }
 div.textContent.blogPage a { text-shadow: 0.5px 0.5px 1px black; }
 
@@ -172,16 +173,16 @@ div.textContent.blogPage { padding-right: 8px; }
 
 div.textContent h1 { margin-bottom: 5px; }
 
-p.smallBlogPostText, p.smallBlogPostText a {
+.smallBlogPostText, .smallBlogPostText a {
     color: #777777;
     text-shadow: 0.5px 0.5px 1px black !important;
     font-size: 12px;
     margin: 0;
 }
 
-p.smallBlogPostText a { font-weight: bold; }
+.smallBlogPostText a { font-weight: bold; }
 
-p.smallBlogPostText a:hover { color: #aaaaaa; }
+.smallBlogPostText a:hover { color: #aaaaaa; }
 
 /* Pagination styles */
 nav#blogPostPagination { text-align: center; }
@@ -380,3 +381,5 @@ div#liveSearchResults h3 a {
     color: var(--deeppink);
 }
 div#liveSearchResults h3 a:hover { color: var(--softpink); }
+
+h3 span.smallBlogPostText { font-weight: normal; }

@@ -1,4 +1,6 @@
 <?php
+require get_theme_file_path('/inc/searchroute.php');
+
 function oforib_filesForSite() {
 	wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
 	wp_enqueue_style('font_awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');

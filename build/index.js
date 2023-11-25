@@ -88,19 +88,23 @@ class LiveSearch {
     this.previousValue = this.searchBar.val();
   }
   getSearchResults() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default().getJSON(siteData.url + '/wp-json/wp/v2/posts?search=' + this.searchBar.val(), postResults => {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().getJSON(siteData.url + '/wp-json/oforibeauty/v1/liveSearchResults?term=' + this.searchBar.val(), results => {
       this.searchResultsDiv.html(`
                 <div class="threeColumns">
                     <div>
                         <h2>Blog Posts</h2>
-                        ${postResults.length ? '' : '<p>No blog posts found</p>'}
-                        ${postResults.map(item => `<h3><a href="${item.link}">${item.title.rendered}</a></h3>`).join('')}
+                        ${results.posts.length ? '' : '<p>No blog posts found</p>'}
+                        ${results.posts.map(item => `<h3><a href="${item.permalink}">${item.title}</a><span class="smallBlogPostText"> by ${item.authorName}</span></h3>`).join('')}
                     </div>
                     <div>
                         <h2>Pages</h2>
+                        ${results.pages.length ? '' : '<p>No pages found</p>'}
+                        ${results.pages.map(item => `<h3><a href="${item.permalink}">${item.title}</a></h3>`).join('')}
                     </div>
                     <div>
                         <h2>Services</h2>
+                        ${results.services.length ? '' : '<p>No services found</p>'}
+                        ${results.services.map(item => `<h3><a href="${item.permalink}">${item.title}</a></h3><p class="price">${item.price}</p>`).join('')}
                     </div>
                 </div>
             `);
