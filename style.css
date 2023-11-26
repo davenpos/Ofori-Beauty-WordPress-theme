@@ -88,7 +88,7 @@ header ul.menu {
 
 header ul.menu li { margin: 0 10px; }
 
-header a, header a i, i.fa.fa-bars.headerRight {
+header a, header a i, i.fa.fa-bars {
     color: var(--deeppink);
 }
 
@@ -107,7 +107,7 @@ header li.current-menu-item a, header li.current_page_parent a {
     padding-left: 20px;
 }
 
-i.fa.fa-bars.headerRight {
+i.fa.fa-bars {
     visibility: hidden;
     padding: 0;
     width: 0;
@@ -246,7 +246,8 @@ div.widgetSidebar {
     padding: 0 10px 20px 10px;
     margin-right: 80px;
     float: right;
-    width: 16.67%;
+    width: -moz-fit-content;
+    width: fit-content;
     font-size: small;
 }
 
@@ -406,9 +407,9 @@ div#liveSearchResults h3 a:hover { color: var(--softpink); }
 
 h3 span.smallBlogPostText { font-weight: normal; }
 
-/* Mobile view */
+/* Small screen styles */
 @media (max-width: 925px) {
-	i.fa.fa-bars.headerRight {
+	i.fa.fa-bars {
         visibility: visible;
         width: auto;
         padding-left: 20px;
@@ -447,17 +448,56 @@ h3 span.smallBlogPostText { font-weight: normal; }
         right: 10px;
     }
 
-    /*header ul.menu, a.nonIcon {
-        visibility: none;
-    }*/
+    div.blogColumns {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.blogColumns div.widgetSidebar {
+        -webkit-order: 2;
+        order: 2;
+        margin: 0 80px;
+    }
+
+    div.blogColumns div.textContent.blogPage {
+        -webkit-order: 1;
+        order: 1;
+        padding: 0 80px;
+    }
 }
 
 /* Styles accounting for the times when the admin bar is 46px tall */
 @media (max-width: 782px) {
     body.admin-bar { min-height: calc(100vh - 46px); }
     body.admin-bar div#searchOverlay, body.admin-bar header nav#headerMenu { top: 46px; }
+
+    footer div.threeColumns {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(120px, auto)
+    }
+
+    footer div.threeColumns > div {
+        grid-column: span 1;
+        text-align: center;
+    }
+
+    footer div.threeColumns a.logoFooter {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+    
+    a.logoFooter { margin: auto; }
+    a.logoFooter img { height: 100px; }
 }
 
-/*
-https://www.w3schools.com/cssref/tryit.php?filename=trycss3_order
-*/
+/* Phone styles */
+@media (max-width: 450px) {
+    header, footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    div.widgetSidebar, div.blogColumns div.widgetSidebar { margin-right: 10px; }
+    div.blogColumns div.widgetSidebar { margin-left: 10px; }
+}

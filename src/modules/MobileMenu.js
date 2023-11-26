@@ -5,7 +5,6 @@ class MobileMenu {
         this.menuButton = $('i.fa.fa-bars')
         this.closeButton = $('i#closeMenu')
         this.navMenu = $('nav#headerMenu')
-        this.navPosition = 0
         this.top = 0
         if ($('body').hasClass("admin-bar")) {
             if ($(window).width() < 782) {
@@ -21,11 +20,7 @@ class MobileMenu {
     }
 
     events() {
-        $(window).on("resize", () => {
-            setTimeout(() => {
-                this.navMenu.css('top', -this.navMenu.outerHeight() + 'px')
-            }, 1)
-        })
+        $(window).on("resize", () => this.navMenu.css('top', -this.navMenu.outerHeight() + 'px'))
         this.menuButton.on("click", () => this.openMobileMenu())
         this.closeButton.on("click", () => this.closeMobileMenu())
     }

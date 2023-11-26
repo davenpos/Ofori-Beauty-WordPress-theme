@@ -128,7 +128,6 @@ class MobileMenu {
     this.menuButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('i.fa.fa-bars');
     this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('i#closeMenu');
     this.navMenu = jquery__WEBPACK_IMPORTED_MODULE_0___default()('nav#headerMenu');
-    this.navPosition = 0;
     this.top = 0;
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
       if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() < 782) {
@@ -143,11 +142,7 @@ class MobileMenu {
     this.events();
   }
   events() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize", () => {
-      setTimeout(() => {
-        this.navMenu.css('top', -this.navMenu.outerHeight() + 'px');
-      }, 1);
-    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize", () => this.navMenu.css('top', -this.navMenu.outerHeight() + 'px'));
     this.menuButton.on("click", () => this.openMobileMenu());
     this.closeButton.on("click", () => this.closeMobileMenu());
   }
@@ -187,9 +182,7 @@ class StickyHeader {
     this.headerHeight = this.header.outerHeight();
     this.top = 0;
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
-      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() < 782) {
-        this.top = 46;
-      } else {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 782) {
         this.top = 32;
       }
     }
@@ -202,6 +195,9 @@ class StickyHeader {
   }
   toggleHeader() {
     const currentScroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+      this.headerHeight += 46;
+    }
     if (currentScroll > this.headerHeight) {
       if (currentScroll > this.lastScrollTop) {
         this.header.css({
@@ -209,15 +205,25 @@ class StickyHeader {
           "width": "100%",
           "top": "-" + this.headerHeight + "px"
         });
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+          this.headerHeight -= 46;
+        }
         this.mainContent.css("padding-top", this.headerHeight + "px");
       } else {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+          this.headerHeight -= 46;
+        }
         this.header.css({
           "top": this.top,
           "transition": "top 0.3s ease-in-out"
         });
       }
+    } else {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+        this.headerHeight -= 46;
+      }
     }
-    if (window.scrollY == 0) {
+    if (window.scrollY == 0 || window.scrollY <= 46 && jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
       this.header.css({
         "position": "",
         "width": "",

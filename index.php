@@ -1,6 +1,8 @@
 <?php get_header(); ?>
-<div>
-    <?php get_template_part('widgetsidebar'); ?>
+<div class="blogColumns">
+    <div class="widgetSidebar">
+        <?php dynamic_sidebar('Blog Sidebar'); ?>
+    </div>
     <div class="textContent blogPage <?php if (is_archive()) echo 'archivePage' ?>"><?php if (is_archive()): ?>
             <h1 class="archiveHeader">
             <?php if (is_author()): ?>
@@ -29,7 +31,7 @@
                 endif; ?>
                 <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                 <p class="smallBlogPostText">Posted by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author(); ?></a><?php echo ($categories) ? ' under ' . trim($categoryList, ', ') : ''; ?> on <?php the_time('F j, Y'); ?></p>
-                <p><?php the_excerpt(); ?></p>
+                <?php the_excerpt(); ?>
             <?php endwhile; ?>
             <nav id="blogPostPagination"><?php echo paginate_links(array(
                 'prev_text' => '&larr;',
