@@ -6,49 +6,43 @@ class MobileMenu {
         this.closeButton = $('i#closeMenu')
         this.navMenu = $('nav#headerMenu')
         this.navPosition = 0
+        this.top = 0
         if ($('body').hasClass("admin-bar")) {
             if ($(window).width() < 782) {
                 this.top = 46
             } else {
                 this.top = 32
             }
+        } else {
+            this.top = 0
         }
-        alert(this.navMenu.outerHeight())
-        this.hiddenPosition = this.top - this.navMenu.outerHeight()
-        this.navMenu.css('top', this.hiddenPosition + 'px')
+        this.navMenu.css('top', -this.navMenu.outerHeight() + 'px')
         this.events()
     }
 
     events() {
-        $(window).on("resize", () => this.navMenu.css('top', this.navMenu.outerHeight() + 'px'))
-        //$(window).on("scroll", () => this.navTop())
+        $(window).on("resize", () => {
+            setTimeout(() => {
+                this.navMenu.css('top', -this.navMenu.outerHeight() + 'px')
+            }, 1)
+        })
         this.menuButton.on("click", () => this.openMobileMenu())
         this.closeButton.on("click", () => this.closeMobileMenu())
     }
 
     openMobileMenu() {
-        $('html, body').css({
-            "height": "100%",
-            "overflow": "hidden"
-        })
-        this.navMenu.css('top', this.top)
+        if ($(window).scrollTop() > $('header').outerHeight()) {
+            this.navMenu.css('top', '0')
+        } else {
+            this.navMenu.css('top', this.top + 'px')
+        }
+        $('html, body').css('overflow', 'hidden')
     }
 
     closeMobileMenu() {
-        $('html, body').css({
-            "height": "",
-            "overflow": ""
-        })
-        this.navMenu.css('top', this.hiddenPosition + 'px')
+        $('html, body').css('overflow', '')
+        this.navMenu.css('top', -this.navMenu.outerHeight() + 'px')
     }
-
-    /*navTop() {
-        if ($(window).scrollTop() > $('header').outerHeight()) {
-            this.top = 0
-        } else {
-            this.setTop()
-        }
-    }*/
 }
 
 export default MobileMenu

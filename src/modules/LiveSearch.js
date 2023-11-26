@@ -24,10 +24,7 @@ class LiveSearch {
 
     openOverlay() {
         this.searchOverlay.css("opacity", "1")
-        $('html, body').css({
-            "height": "100%",
-            "overflow": "hidden"
-        })
+        $('html, body').css('overflow', 'hidden')
         this.searchOverlay.addClass("searchActive")
         this.searchBar.val('')
         this.searchResultsDiv.html('')
@@ -38,10 +35,7 @@ class LiveSearch {
 
     closeOverlay() {
         this.searchOverlay.css("opacity", "0")
-        $('html, body').css({
-            "height": "",
-            "overflow": ""
-        })
+        $('html, body').css('overflow', '')
         setTimeout(() => this.searchOverlay.removeClass("searchActive"), 300)
         this.overlayOpen = false
     }
