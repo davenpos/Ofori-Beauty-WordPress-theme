@@ -20,6 +20,7 @@ class LiveSearch {
         this.closeButton.on("click", () => this.closeOverlay())
         $(document).on("keydown", (e) => this.keyPress(e))
         this.searchBar.on("keyup", () => this.userTypes())
+        $(window).on("resize", () => this.getSearchResults())
     }
 
     openOverlay() {
@@ -87,7 +88,7 @@ class LiveSearch {
                         ${results.pages.length ? '' : '<p>No pages found</p>'}
                         ${results.pages.map(item => `<h3><a href="${item.permalink}">${item.title}</a></h3>`).join('')}
                     </div>
-                    <div>
+                    <div id="servicesSearchResults">
                         <h2>Services</h2>
                         ${results.services.length ? '' : '<p>No services found</p>'}
                         ${results.services.map(item => `<h3><a href="${item.permalink}">${item.title}</a></h3><p class="price">${item.price}</p>`).join('')}

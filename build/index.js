@@ -34,6 +34,7 @@ class LiveSearch {
     this.closeButton.on("click", () => this.closeOverlay());
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on("keydown", e => this.keyPress(e));
     this.searchBar.on("keyup", () => this.userTypes());
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize", () => this.getSearchResults());
   }
   openOverlay() {
     this.searchOverlay.css("opacity", "1");
@@ -95,7 +96,7 @@ class LiveSearch {
                         ${results.pages.length ? '' : '<p>No pages found</p>'}
                         ${results.pages.map(item => `<h3><a href="${item.permalink}">${item.title}</a></h3>`).join('')}
                     </div>
-                    <div>
+                    <div id="servicesSearchResults">
                         <h2>Services</h2>
                         ${results.services.length ? '' : '<p>No services found</p>'}
                         ${results.services.map(item => `<h3><a href="${item.permalink}">${item.title}</a></h3><p class="price">${item.price}</p>`).join('')}
@@ -178,7 +179,20 @@ __webpack_require__.r(__webpack_exports__);
 
 class StickyHeader {
   constructor() {
+    //alert($(window).width())
     this.header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('header');
+    this.mainContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('div#mainContent');
+    this.headerHeight;
+    this.top;
+    this.setTopVariables();
+    this.lastScrollTop;
+    this.events();
+  }
+  events() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll", () => this.toggleHeader());
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize", () => this.setTopVariables());
+  }
+  setTopVariables() {
     this.headerHeight = this.header.outerHeight();
     this.top = 0;
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
@@ -186,12 +200,6 @@ class StickyHeader {
         this.top = 32;
       }
     }
-    this.mainContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('div#mainContent');
-    this.lastScrollTop;
-    this.events();
-  }
-  events() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll", () => this.toggleHeader());
   }
   toggleHeader() {
     const currentScroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();

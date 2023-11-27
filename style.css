@@ -11,6 +11,7 @@ Version: 1.0.0
     --mediumpink: rgb(239, 139, 161);
     --softpink: rgb(250, 122, 148);
     --lightpink: #ffe1ee;
+    --roundedcorners: rgb(252, 202, 220);
     --plum: rgb(245, 0, 160);
     --semitransparentdeeppink: rgba(245, 83, 115, 0.75);
     --mediumgray: rgb(106, 95, 96);
@@ -235,12 +236,6 @@ span.page-numbers.current {
     color: var(--mediumgray) !important;
 }
 
-/* Rounded containers */
-div.widgetSidebar, div#liveSearchResults {
-    background-color: rgb(252, 202, 220);
-    border-radius: 10px;
-}
-
 /* Blog archive sidebar styles: */
 div.widgetSidebar {
     padding: 0 10px 20px 10px;
@@ -249,6 +244,8 @@ div.widgetSidebar {
     width: -moz-fit-content;
     width: fit-content;
     font-size: small;
+    background-color: var(--roundedcorners);
+    border-radius: 10px;
 }
 
 div.widgetSidebar ul {
@@ -384,8 +381,10 @@ div#liveSearchResults {
     top: 72px;
     width: calc(100% - 160px);
     margin-top: 10px;
-    height: calc(100% - 93px);
+    height: calc(100% - 82px);
     padding: 10px;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--roundedcorners);
 }
 
 div#liveSearchResults div.threeColumns h2 { margin-top: 0; }
@@ -465,6 +464,22 @@ h3 span.smallBlogPostText { font-weight: normal; }
         order: 1;
         padding: 0 80px;
     }
+
+    div#liveSearchResults div.threeColumns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    div#liveSearchResults > div {
+        grid-column: span 1;
+        grid-auto-rows: minmax(auto, auto)
+    }
+
+    div#liveSearchResults div#servicesSearchResults {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    div#liveSearchResults div.threeColumns div h3:last-of-type { margin-bottom: revert; }
 }
 
 /* Styles accounting for the times when the admin bar is 46px tall */
@@ -500,4 +515,15 @@ h3 span.smallBlogPostText { font-weight: normal; }
 
     div.widgetSidebar, div.blogColumns div.widgetSidebar { margin-right: 10px; }
     div.blogColumns div.widgetSidebar { margin-left: 10px; }
+    div#liveSearchResults { width: calc(100% - 20px) }
+
+    div#searchOverlay { display: block; }
+    div#liveSearchResults div.threeColumns { grid-template-columns: 1fr; }
+    div#servicesSearchResults {
+        grid-column: auto / auto !important;
+        grid-row: auto / auto !important;
+    }
+
+    div#searchOverlay input.searchTerm { width: 86%; }
+    i#closeSearch { right: 10px; }
 }

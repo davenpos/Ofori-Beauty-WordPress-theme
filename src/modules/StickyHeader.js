@@ -2,21 +2,30 @@ import $ from 'jquery'
 
 class StickyHeader {
     constructor() {
+        //alert($(window).width())
         this.header = $('header')
-        this.headerHeight = this.header.outerHeight()
-        this.top = 0
-        if ($('body').hasClass("admin-bar")) {
-            if ($(window).width() >= 782) {
-                this.top = 32
-            }
-        }
         this.mainContent = $('div#mainContent')
+        this.headerHeight
+        this.top
+        this.setTopVariables()
         this.lastScrollTop
         this.events()
     }
 
     events() {
         $(window).on("scroll", () => this.toggleHeader())
+        $(window).on("resize", () => this.setTopVariables())
+    }
+
+    setTopVariables() {
+        this.headerHeight = this.header.outerHeight()
+        
+        this.top = 0
+        if ($('body').hasClass("admin-bar")) {
+            if ($(window).width() >= 782) {
+                this.top = 32
+            }
+        }
     }
 
     toggleHeader() {
