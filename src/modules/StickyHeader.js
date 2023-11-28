@@ -2,7 +2,6 @@ import $ from 'jquery'
 
 class StickyHeader {
     constructor() {
-        //alert($(window).width())
         this.header = $('header')
         this.mainContent = $('div#mainContent')
         this.headerHeight

@@ -115,7 +115,10 @@ i.fa.fa-bars {
     cursor: pointer;
 }
 
-img.siteLogo { height: 80px; }
+img.siteLogo {
+    height: 80px;
+    max-width: initial;
+}
 
 i#closeMenu { display: none; }
 
@@ -196,7 +199,7 @@ div.textContent.blogPage { padding-right: 8px; }
 div.textContent h1 { margin-bottom: 5px; }
 
 .smallBlogPostText, .smallBlogPostText a {
-    color: #777777;
+    color: #777777 !important;
     text-shadow: 0.5px 0.5px 1px black !important;
     font-size: 12px;
     margin: 0;
@@ -204,7 +207,7 @@ div.textContent h1 { margin-bottom: 5px; }
 
 .smallBlogPostText a { font-weight: bold; }
 
-.smallBlogPostText a:hover { color: #aaaaaa; }
+.smallBlogPostText a:hover { color: #aaaaaa !important; }
 
 /* Pagination styles */
 nav#blogPostPagination { text-align: center; }
@@ -355,7 +358,7 @@ div#searchOverlay.searchActive {
     opacity: 1;
 }
 
-div#searchOverlay input.searchTerm {
+div#searchOverlay input.searchTerm, input#s {
     width: 90%;
     height: 50px;
     border-radius: 30px;
@@ -405,6 +408,25 @@ div#liveSearchResults h3 a {
 div#liveSearchResults h3 a:hover { color: var(--softpink); }
 
 h3 span.smallBlogPostText { font-weight: normal; }
+
+/* Traditional fallback search */
+div#searchform {
+    text-align: center;
+}
+
+input#s {
+    background-color: var(--lightpink);
+    color: var(--darkgray);
+}
+
+input#searchsubmit {
+    font-size: 16px;
+    padding: 12px 18px;
+    margin-top: 8px;
+}
+
+div#searchResults h2 { text-shadow: 0.5px 0.5px 1px black; }
+h2.postSearchResultsPage { margin-bottom: 0; }
 
 /* Small screen styles */
 @media (max-width: 925px) {

@@ -26,7 +26,7 @@
                 </nav>
             <?php endif; ?>
             <i class="fa fa-bars headerRight" aria-hidden="true"></i>
-            <a id="searchButton" href="" class="headerRight">
+            <a id="searchButton" href="<?php echo esc_url(site_url('/search')); ?>" class="headerRight">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </a>
         </header>

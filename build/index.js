@@ -179,7 +179,6 @@ __webpack_require__.r(__webpack_exports__);
 
 class StickyHeader {
   constructor() {
-    //alert($(window).width())
     this.header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('header');
     this.mainContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('div#mainContent');
     this.headerHeight;
