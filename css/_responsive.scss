@@ -19,10 +19,103 @@
         a {
             color: $lightpink;
             display: table-row;
+            &.headerRight {
+                margin-left: 0;
+                padding-left: 0;
+            }
         }
         li.current-menu-item a, li.current_page_parent a, a:hover {
             color: $plum;
-            text-shadow: 0.25px 0.25px 0.5px black;
+            text-shadow: $smallShadow;
         }
+        i#closeMenu {
+            display: block;
+            right: 10px;
+        }
+    }
+
+    div.blogColumns {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        div.widgetSidebar {
+            -webkit-order: 2;
+            order: 2;
+            margin: 0 $verticalPadding;
+        }
+        div.textContent.blogPage {
+            -webkit-order: 1;
+            order: 1;
+            padding: 0 $verticalPadding;
+        }
+    }
+
+    div#liveSearchResults {
+        div.threeColumns {
+            grid-template-columns: repeat(2, 1fr);
+            div h3:last-of-type { margin-bottom: revert; }
+        }
+        > div {
+            grid-column: span 1;
+            grid-auto-rows: minmax(auto, auto);
+            h2 { margin: 0; }
+            h3 { margin-top: 10px; }
+        }
+        div#servicesSearchResults {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+    }
+}
+
+@media (max-width: 782px) {
+    body.admin-bar {
+        min-height: calc(100vh - 46px);
+        div#searchOverlay, header nav#headerMenu { top: 46px; }
+    }
+
+    div.textContent.blogPage h1 { margin-top: 5px; }
+
+    footer div.threeColumns {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(120px, auto);
+        > div {
+            grid-column: span 1;
+            text-align: center;
+        }
+    }
+
+    footer div.threeColumns a#logoFooter {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    a#logoFooter {
+        margin: auto;
+        img { height: 100px; }
+    }
+}
+
+@media (max-width: 450px) {
+    header, footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
+        padding-left: $phoneVerticalPadding;
+        padding-right: $phoneVerticalPadding;
+    }
+
+    div.blogColumns div.widgetSidebar { margin: 0 $phoneVerticalPadding; }
+
+    div#searchOverlay {
+        display: block;
+        input.searchTerm { width: 86%; }
+        i#closeSearch { right: 10px; }
+        div#liveSearchResults {
+            width: calc(100% - $phoneVerticalPadding * 2);
+            div.threeColumns { grid-template-columns: 1fr; }
+        }
+    }
+
+    div#servicesSearchResults {
+        grid-column: auto / auto !important;
+        grid-row: auto / auto !important;
     }
 }

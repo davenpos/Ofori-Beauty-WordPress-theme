@@ -70,12 +70,14 @@ h1#fourOhFourPage {
   text-shadow: 1px 1px 1.5px black;
 }
 
-header a, header a i, footer a, footer a i {
-  text-decoration: none;
-  font-size: 16px;
+i.fa.fa-window-close {
+  position: absolute;
+  color: red;
+  text-shadow: 0.5px 0.5px 1px black;
+  cursor: pointer;
 }
-header ul.menu, footer ul.menu {
-  list-style: none;
+i.fa.fa-window-close:hover {
+  filter: brightness(90%);
 }
 
 header {
@@ -85,6 +87,13 @@ header {
   align-items: center;
   padding: 15px 80px;
   z-index: 100;
+}
+header a, header a i {
+  text-decoration: none;
+  font-size: 16px;
+}
+header ul.menu {
+  list-style: none;
 }
 header nav#headerMenu {
   display: flex;
@@ -142,6 +151,13 @@ footer {
   background-color: #ffe1ee;
   padding: 20px 80px 0;
   color: rgb(106, 95, 96);
+}
+footer a, footer a i {
+  text-decoration: none;
+  font-size: 16px;
+}
+footer ul.menu {
+  list-style: none;
 }
 footer ul.menu {
   padding-left: 0;
@@ -209,21 +225,22 @@ div.textContent :not(p.smallBlogPostText) a {
 div.textContent div.postContent a {
   text-shadow: none;
 }
-div.textContent .smallBlogPostText, div.textContent .smallBlogPostText a {
+
+div.blogArchives a {
+  color: rgb(245, 83, 115);
+}
+
+.smallBlogPostText, .smallBlogPostText a {
   color: #777777 !important;
   text-shadow: 0.5px 0.5px 1px black !important;
   font-size: 12px;
   margin: 0;
 }
-div.textContent .smallBlogPostText a {
+.smallBlogPostText a {
   font-weight: bold;
 }
-div.textContent .smallBlogPostText a:hover {
+.smallBlogPostText a:hover {
   color: #aaaaaa !important;
-}
-
-div.blogArchives a {
-  color: rgb(245, 83, 115);
 }
 
 nav#pagination {
@@ -372,7 +389,7 @@ button.single_add_to_cart_button {
   padding: 12px !important;
 }
 
-.searchBox, input#s, div#searchOverlay input.searchTerm {
+.searchBox, div#searchform input#s, div#searchOverlay input.searchTerm {
   width: 90%;
   height: 50px;
   border-radius: 30px;
@@ -398,15 +415,11 @@ div#searchOverlay.searchActive {
   visibility: visible;
   opacity: 1;
 }
-div#searchOverlay i#closeSearch {
-  position: absolute;
-  color: red;
-  text-shadow: 0.5px 0.5px 1px black;
-  cursor: pointer;
-  right: 20px;
+div#searchOverlay.searchActive div#liveSearchResults {
+  display: block;
 }
-div#searchOverlay i#closeSearch:hover {
-  filter: brightness(90%);
+div#searchOverlay i#closeSearch {
+  right: 20px;
 }
 div#searchOverlay div#liveSearchResults {
   position: absolute;
@@ -422,9 +435,50 @@ div#searchOverlay div#liveSearchResults {
   border-radius: 10px;
   border-radius: 10px 10px 0 0;
 }
+div#searchOverlay div#liveSearchResults div.threeColumns h2 {
+  margin-top: 0;
+}
+div#searchOverlay div#liveSearchResults i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+div#searchOverlay div#liveSearchResults h3 {
+  margin-bottom: 5px;
+}
+div#searchOverlay div#liveSearchResults h3 a {
+  text-shadow: 0.5px 0.5px 1px black;
+  color: rgb(245, 83, 115);
+}
+div#searchOverlay div#liveSearchResults h3 a:hover {
+  color: rgb(250, 122, 148);
+}
+div#searchOverlay div#liveSearchResults h3 span.smallBlogPostText {
+  font-weight: normal;
+}
 
 body.admin-bar div#searchOverlay {
   top: 32px;
+}
+
+div#searchform {
+  text-align: center;
+}
+div#searchform input#s {
+  background-color: #ffe1ee;
+  color: rgb(59, 58, 58);
+}
+div#searchform input#searchsubmit {
+  font-size: 16px;
+  padding: 12px 18px;
+  margin-top: 8px;
+}
+
+div#searchResults h2 {
+  text-shadow: 0.5px 0.5px 1px black;
+}
+div#searchResults h2.postSearchResultsPage {
+  margin-bottom: 0;
 }
 
 @media (max-width: 925px) {
@@ -449,8 +503,108 @@ body.admin-bar div#searchOverlay {
     color: #ffe1ee;
     display: table-row;
   }
+  header nav#headerMenu a.headerRight {
+    margin-left: 0;
+    padding-left: 0;
+  }
   header nav#headerMenu li.current-menu-item a, header nav#headerMenu li.current_page_parent a, header nav#headerMenu a:hover {
     color: rgb(245, 0, 160);
     text-shadow: 0.25px 0.25px 0.5px black;
+  }
+  header nav#headerMenu i#closeMenu {
+    display: block;
+    right: 10px;
+  }
+  div.blogColumns {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+  }
+  div.blogColumns div.widgetSidebar {
+    -webkit-order: 2;
+    order: 2;
+    margin: 0 80px;
+  }
+  div.blogColumns div.textContent.blogPage {
+    -webkit-order: 1;
+    order: 1;
+    padding: 0 80px;
+  }
+  div#liveSearchResults div.threeColumns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  div#liveSearchResults div.threeColumns div h3:last-of-type {
+    margin-bottom: revert;
+  }
+  div#liveSearchResults > div {
+    grid-column: span 1;
+    grid-auto-rows: minmax(auto, auto);
+  }
+  div#liveSearchResults > div h2 {
+    margin: 0;
+  }
+  div#liveSearchResults > div h3 {
+    margin-top: 10px;
+  }
+  div#liveSearchResults div#servicesSearchResults {
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+}
+@media (max-width: 782px) {
+  body.admin-bar {
+    min-height: calc(100vh - 46px);
+  }
+  body.admin-bar div#searchOverlay, body.admin-bar header nav#headerMenu {
+    top: 46px;
+  }
+  div.textContent.blogPage h1 {
+    margin-top: 5px;
+  }
+  footer div.threeColumns {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+  }
+  footer div.threeColumns > div {
+    grid-column: span 1;
+    text-align: center;
+  }
+  footer div.threeColumns a#logoFooter {
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+  a#logoFooter {
+    margin: auto;
+  }
+  a#logoFooter img {
+    height: 100px;
+  }
+}
+@media (max-width: 450px) {
+  header, footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  div.blogColumns div.widgetSidebar {
+    margin: 0 10px;
+  }
+  div#searchOverlay {
+    display: block;
+  }
+  div#searchOverlay input.searchTerm {
+    width: 86%;
+  }
+  div#searchOverlay i#closeSearch {
+    right: 10px;
+  }
+  div#searchOverlay div#liveSearchResults {
+    width: calc(100% - 20px);
+  }
+  div#searchOverlay div#liveSearchResults div.threeColumns {
+    grid-template-columns: 1fr;
+  }
+  div#servicesSearchResults {
+    grid-column: auto/auto !important;
+    grid-row: auto/auto !important;
   }
 }/*# sourceMappingURL=main.css.map */

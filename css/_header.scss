@@ -1,9 +1,5 @@
-header, footer {
-    a, a i { @include headerFooterLinks; }
-    ul.menu { list-style: none; }
-}
-
 header {
+    @include headerFooter;
     background-color: $lightpink;
     color: $mediumpink;
     @include flexCenterItems;
@@ -13,7 +9,6 @@ header {
     nav#headerMenu {
         @include flexCenterItems;
         width: 100%;
-        //i#closeMenu { display: none; }
     }
 
     ul.menu {

@@ -1,4 +1,5 @@
 footer {
+    @include headerFooter;
     background-color: $lightpink;
     padding: 20px $verticalPadding 0;
     color: $mediumgray;

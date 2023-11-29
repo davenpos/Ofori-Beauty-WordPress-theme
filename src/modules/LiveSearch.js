@@ -20,7 +20,6 @@ class LiveSearch {
         this.closeButton.on("click", () => this.closeOverlay())
         $(document).on("keydown", (e) => this.keyPress(e))
         this.searchBar.on("keyup", () => this.userTypes())
-        //$(window).on("resize", () => this.getSearchResults())
     }
 
     openOverlay() {

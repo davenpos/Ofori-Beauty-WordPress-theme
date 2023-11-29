@@ -23,18 +23,12 @@ div#searchOverlay {
     &.searchActive {
         visibility: visible;
         opacity: 1;
+        div#liveSearchResults { display: block; }
     }
 
     input.searchTerm { @extend .searchBox; }
 
-    i#closeSearch {
-        position: absolute;
-        color: red;
-        text-shadow: 0.5px 0.5px 1px black;
-        cursor: pointer;
-        right: 20px;
-        &:hover { filter: brightness(90%); }
-    }
+    i#closeSearch { right: 20px; }
 
     div#liveSearchResults {
         position: absolute;
@@ -48,6 +42,24 @@ div#searchOverlay {
         padding: 10px;
         @include roundedCorners;
         border-radius: 10px 10px 0 0;
+
+        div.threeColumns h2 { margin-top: 0; }
+
+        i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+            a {
+                text-shadow: $mediumShadow;
+                color: $deeppink;
+                &:hover { color: $softpink; }
+            }
+            span.smallBlogPostText { font-weight: normal; }
+        }
     }
 }
 

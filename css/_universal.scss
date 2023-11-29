@@ -57,3 +57,11 @@ h1#fourOhFourPage {
     margin-top: 15px;
     text-shadow: $largeShadow;
 }
+
+i.fa.fa-window-close {
+    position: absolute;
+    color: red;
+    text-shadow: 0.5px 0.5px 1px black;
+    cursor: pointer;
+    &:hover { filter: brightness(90%); }
+}

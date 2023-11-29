@@ -8,9 +8,12 @@
     &:hover { color: $darkgray !important; }
 }
 
-@mixin headerFooterLinks {
-    text-decoration: none;
-    font-size: 16px;
+@mixin headerFooter {
+    a, a i {
+        text-decoration: none;
+        font-size: 16px;
+    }
+    ul.menu { list-style: none; }
 }
 
 @mixin flexCenterItems {
