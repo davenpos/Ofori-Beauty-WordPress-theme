@@ -1,0 +1,33 @@
+body.login {
+    display: inline;
+    background-color: $lightpink;
+
+    div#login h1 a {
+        height: 100px;
+        width: 180px;
+        background-size: 180px;
+        background-image: url('/wp-content/themes/oforibeautytheme/images/logo.png');
+    }
+    
+    form#loginform {
+        margin: 0;
+        border: 1px solid black;
+        @include roundedCorners;
+    }
+
+    input[type=password] { border-radius: 20px 0 0 20px; }
+    
+    button.wp-hide-pw {
+        border: 1px solid #8c8f94 !important;
+        border-radius: 0 !important;
+    }
+    
+    button.wp-hide-pw span, select#language-switcher-locales { color: $mediumgray; }
+
+    div.privacy-policy-page-link {
+        margin-top: 26px;
+        a.privacy-policy-link { @include linkText; }
+    }
+
+    p a { @include darkLinkText; }
+}

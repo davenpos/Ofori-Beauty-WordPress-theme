@@ -1,0 +1,456 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body.admin-bar {
+  min-height: calc(100vh - 32px);
+}
+
+div#mainContent {
+  flex: 1;
+  margin-bottom: 8px;
+}
+div#mainContent a {
+  color: rgb(245, 83, 115);
+}
+div#mainContent a:hover {
+  color: rgb(239, 139, 161);
+}
+
+div.textContent, div#searchOverlay {
+  padding: 0 80px;
+}
+
+input[type=submit] {
+  transition: 0.3s;
+}
+
+a, a i, input[type=submit], button[type=submit], i#closeSearch {
+  transition: 0.3s;
+}
+
+input[type=submit], button[type=submit] {
+  background: var(--deeppink) !important;
+  border-color: var(--deeppink) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  font-weight: normal !important;
+  padding: 10px;
+}
+
+input[type=submit]:hover, button {
+  background: rgb(239, 139, 161) !important;
+}
+
+input[type=text], input[type=password] {
+  border-radius: 20px;
+  padding-left: 8px !important;
+}
+
+div.threeColumns {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+h1#fourOhFourPage {
+  color: rgb(245, 83, 115);
+  text-align: center;
+  font-size: 64px;
+  margin-top: 15px;
+  text-shadow: 1px 1px 1.5px black;
+}
+
+header a, header a i, footer a, footer a i {
+  text-decoration: none;
+  font-size: 16px;
+}
+header ul.menu, footer ul.menu {
+  list-style: none;
+}
+
+header {
+  background-color: #ffe1ee;
+  color: rgb(239, 139, 161);
+  display: flex;
+  align-items: center;
+  padding: 15px 80px;
+  z-index: 100;
+}
+header nav#headerMenu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+header ul.menu {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+header ul.menu li {
+  margin: 0 10px;
+}
+header ul.menu li.current-menu-item a, header ul.menu li.current_page_parent a {
+  color: rgb(245, 0, 160);
+  text-decoration: underline;
+}
+header a, header a i, header i.fa.fa-bars {
+  color: rgb(245, 83, 115);
+}
+header a:hover, header a i:hover, header i.fa.fa-bars:hover {
+  color: rgb(245, 0, 160);
+}
+
+.headerRight {
+  padding-left: 20px;
+  margin-left: auto;
+}
+.headerRight ~ .headerRight {
+  margin-left: 0;
+}
+
+a#logoHeader, a#logoFooter, img.siteLogo {
+  height: 80px;
+}
+
+img.siteLogo {
+  max-width: initial;
+}
+
+i.fa.fa-bars {
+  visibility: hidden;
+  padding: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+i#closeMenu {
+  display: none;
+  transition: 0.3s;
+}
+
+footer {
+  background-color: #ffe1ee;
+  padding: 20px 80px 0;
+  color: rgb(106, 95, 96);
+}
+footer ul.menu {
+  padding-left: 0;
+}
+footer p#smallFooterText {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0;
+}
+footer a, footer a i {
+  color: rgb(106, 95, 96) !important;
+}
+footer a:hover, footer a i:hover {
+  color: rgb(59, 58, 58) !important;
+}
+footer ul.menu {
+  margin: 0;
+}
+footer ul.menu li {
+  padding-bottom: 12px;
+}
+footer ul.menu li:last-of-type {
+  padding-bottom: 0;
+}
+footer ul.menu li.current-menu-item a {
+  color: rgb(59, 58, 58);
+  text-decoration: underline;
+}
+footer h2 {
+  margin: 0 0 15px;
+}
+footer a#logoFooter {
+  display: inline-block;
+  height: 80px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+footer div#socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+h1.archiveHeader {
+  color: #bbbbbb;
+  text-shadow: 0.5px 0.5px 1px black;
+}
+
+div.textContent.blogPage {
+  padding-right: 8px;
+}
+div.textContent.blogPage.archivePage h1:nth-of-type(2) {
+  margin-top: 0;
+}
+div.textContent.blogPage h1 {
+  margin-bottom: 5px;
+}
+div.textContent.blogPage h1 a {
+  text-shadow: 0.5px 0.5px 1px black;
+}
+div.textContent :not(p.smallBlogPostText) a {
+  color: rgb(245, 83, 115);
+}
+div.textContent div.postContent a {
+  text-shadow: none;
+}
+div.textContent .smallBlogPostText, div.textContent .smallBlogPostText a {
+  color: #777777 !important;
+  text-shadow: 0.5px 0.5px 1px black !important;
+  font-size: 12px;
+  margin: 0;
+}
+div.textContent .smallBlogPostText a {
+  font-weight: bold;
+}
+div.textContent .smallBlogPostText a:hover {
+  color: #aaaaaa !important;
+}
+
+div.blogArchives a {
+  color: rgb(245, 83, 115);
+}
+
+nav#pagination {
+  text-align: center;
+}
+nav#pagination ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+}
+nav#pagination li {
+  float: left;
+  padding: 8px 0;
+  border: 1px solid #cfc8d8;
+}
+nav#pagination li * {
+  padding: 8px;
+}
+nav#pagination li:not(:last-of-type) {
+  border-right: none;
+}
+nav#pagination li a {
+  text-shadow: none;
+  text-decoration: none;
+}
+
+span.page-numbers.current {
+  background: #ffe1ee !important;
+  color: rgb(106, 95, 96) !important;
+}
+
+div.widgetSidebar {
+  background-color: rgb(252, 202, 220);
+  border-radius: 10px;
+  padding: 0 10px 20px 10px;
+  margin-right: 80px;
+  float: right;
+  font-size: small;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+div.widgetSidebar ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+div.widgetSidebar h2 {
+  margin-bottom: 0;
+}
+div.widgetSidebar a {
+  color: rgb(245, 83, 115);
+}
+div.widgetSidebar a:hover {
+  color: rgb(239, 139, 161);
+}
+
+body.login {
+  display: inline;
+  background-color: #ffe1ee;
+}
+body.login div#login h1 a {
+  height: 100px;
+  width: 180px;
+  background-size: 180px;
+  background-image: url("/wp-content/themes/oforibeautytheme/images/logo.png");
+}
+body.login form#loginform {
+  margin: 0;
+  border: 1px solid black;
+  background-color: rgb(252, 202, 220);
+  border-radius: 10px;
+}
+body.login input[type=password] {
+  border-radius: 20px 0 0 20px;
+}
+body.login button.wp-hide-pw {
+  border: 1px solid #8c8f94 !important;
+  border-radius: 0 !important;
+}
+body.login button.wp-hide-pw span, body.login select#language-switcher-locales {
+  color: rgb(106, 95, 96);
+}
+body.login div.privacy-policy-page-link {
+  margin-top: 26px;
+}
+body.login div.privacy-policy-page-link a.privacy-policy-link {
+  color: rgb(245, 83, 115);
+}
+body.login div.privacy-policy-page-link a.privacy-policy-link:hover {
+  color: rgb(239, 139, 161);
+}
+body.login p a {
+  color: rgb(106, 95, 96) !important;
+}
+body.login p a:hover {
+  color: rgb(59, 58, 58) !important;
+}
+
+div#comments {
+  border-top: 1px solid black;
+  margin-right: calc(95px + 16.67%);
+  font-size: small;
+}
+div#comments a {
+  text-shadow: none;
+}
+div#comments span.required-field-message, div#comments label[for=comment] {
+  display: none;
+}
+div#comments ul {
+  list-style: none;
+}
+div#comments ul.comment-list {
+  padding-left: 0;
+}
+div#comments ul.children {
+  padding-left: 30px;
+}
+div#comments div.reply {
+  margin-bottom: 15px;
+}
+div#comments div.reply a.comment-edit-link {
+  font-weight: bold;
+}
+div#comments p.commentContent {
+  margin: 0;
+}
+
+p.woocommerce-store-notice {
+  padding: 5px 0;
+}
+
+div.serviceDescription p:last-of-type {
+  margin-bottom: 5px;
+}
+
+p.price {
+  margin-top: 0;
+  color: limegreen;
+  font-size: 12px;
+  text-shadow: 0.5px 0.5px 1px black;
+}
+
+button.single_add_to_cart_button {
+  padding: 12px !important;
+}
+
+.searchBox, input#s, div#searchOverlay input.searchTerm {
+  width: 90%;
+  height: 50px;
+  border-radius: 30px;
+  font-size: 24px;
+}
+
+div#searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 110;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  background-color: rgba(245, 83, 115, 0.75);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+div#searchOverlay.searchActive {
+  visibility: visible;
+  opacity: 1;
+}
+div#searchOverlay i#closeSearch {
+  position: absolute;
+  color: red;
+  text-shadow: 0.5px 0.5px 1px black;
+  cursor: pointer;
+  right: 20px;
+}
+div#searchOverlay i#closeSearch:hover {
+  filter: brightness(90%);
+}
+div#searchOverlay div#liveSearchResults {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  top: 72px;
+  width: calc(100% - 160px);
+  margin-top: 10px;
+  height: calc(100% - 82px);
+  padding: 10px;
+  background-color: rgb(252, 202, 220);
+  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+body.admin-bar div#searchOverlay {
+  top: 32px;
+}
+
+@media (max-width: 925px) {
+  i.fa.fa-bars {
+    visibility: visible;
+    width: auto;
+    padding-left: 20px;
+  }
+  header nav#headerMenu {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    background-color: rgba(245, 83, 115, 0.75);
+    transition: top 0.3s ease-in-out;
+    display: block;
+  }
+  header nav#headerMenu * {
+    display: block;
+    margin: 0;
+  }
+  header nav#headerMenu a {
+    color: #ffe1ee;
+    display: table-row;
+  }
+  header nav#headerMenu li.current-menu-item a, header nav#headerMenu li.current_page_parent a, header nav#headerMenu a:hover {
+    color: rgb(245, 0, 160);
+    text-shadow: 0.25px 0.25px 0.5px black;
+  }
+}/*# sourceMappingURL=main.css.map */

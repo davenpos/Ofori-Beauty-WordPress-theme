@@ -1,0 +1,44 @@
+footer {
+    background-color: $lightpink;
+    padding: 20px $verticalPadding 0;
+    color: $mediumgray;
+
+    ul.menu {
+        padding-left: 0;
+    }
+
+    p#smallFooterText {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    a, a i { @include darkLinkText; }
+
+    ul.menu {
+        margin: 0;
+
+        li {
+            padding-bottom: 12px;
+            &:last-of-type { padding-bottom: 0; }
+            &.current-menu-item a {
+                color: $darkgray;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    h2 { margin: 0 0 15px; }
+
+    a#logoFooter {
+        display: inline-block;
+        height: 80px;
+        @include fitContentWidth;
+    }
+
+    div#socials {
+        @include flexCenterItems;
+        justify-content: center;
+        padding: 10px 0;
+    }
+}

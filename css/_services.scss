@@ -1,0 +1,12 @@
+p.woocommerce-store-notice { padding: 5px 0; }
+
+div.serviceDescription p:last-of-type { margin-bottom: 5px; }
+
+p.price {
+    margin-top: 0;
+    color: limegreen;
+    font-size: 12px;
+    text-shadow: $mediumShadow;
+}
+
+button.single_add_to_cart_button { padding: 12px !important; }

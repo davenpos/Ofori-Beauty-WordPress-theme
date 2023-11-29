@@ -23,7 +23,7 @@
             while (have_posts()): the_post();
                 get_template_part('templates/postdisplay', 'post') ?>
             <?php endwhile; ?>
-            <nav id="blogPostPagination"><?php echo paginate_links(array(
+            <nav id="pagination"><?php echo paginate_links(array(
                 'prev_text' => '&larr;',
                 'next_text' => '&rarr;',
                 'type' => 'list'

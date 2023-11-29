@@ -1,0 +1,29 @@
+@mixin linkText {
+    color: $deeppink;
+    &:hover { color: $mediumpink; }
+}
+
+@mixin darkLinkText {
+    color: $mediumgray !important;
+    &:hover { color: $darkgray !important; }
+}
+
+@mixin headerFooterLinks {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+@mixin flexCenterItems {
+    display: flex;
+    align-items: center;
+}
+
+@mixin roundedCorners {
+    background-color: rgb(252, 202, 220);
+    border-radius: 10px;
+}
+
+@mixin fitContentWidth {
+    width: -moz-fit-content;
+    width: fit-content;
+}

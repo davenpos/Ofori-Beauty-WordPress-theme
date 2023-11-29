@@ -1,0 +1,28 @@
+@media (max-width: 925px) {
+    i.fa.fa-bars {
+        visibility: visible;
+        width: auto;
+        padding-left: 20px;
+    }
+
+    header nav#headerMenu {
+        position: absolute;
+        left: 0;
+        padding: 10px;
+        background-color: $semitransparentdeeppink;
+        transition: top $trans ease-in-out;
+        display: block;
+        * {
+            display: block;
+            margin: 0;
+        }
+        a {
+            color: $lightpink;
+            display: table-row;
+        }
+        li.current-menu-item a, li.current_page_parent a, a:hover {
+            color: $plum;
+            text-shadow: 0.25px 0.25px 0.5px black;
+        }
+    }
+}

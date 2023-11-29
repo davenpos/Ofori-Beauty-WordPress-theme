@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &.admin-bar { min-height: calc(100vh - 32px); }
+}
+
+div#mainContent {
+    flex: 1;
+    margin-bottom: 8px;
+    a {
+        @include linkText;
+    }
+}
+
+div.textContent, div#searchOverlay { padding: 0 $verticalPadding; }
+
+input[type=submit] { transition: $trans; }
+
+a, a i, input[type=submit], button[type=submit], i#closeSearch { transition: $trans; }
+
+input[type=submit], button[type=submit] {
+    background: var(--deeppink) !important;
+    border-color: var(--deeppink) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+    font-weight: normal !important;
+    padding: 10px;
+}
+
+input[type=submit]:hover, button { background: $mediumpink !important; }
+
+input[type=text], input[type=password] {
+    border-radius: 20px;
+    padding-left: 8px !important;
+}
+
+div.threeColumns {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+h1#fourOhFourPage {
+    color: $deeppink;
+    text-align: center;
+    font-size: 64px;
+    margin-top: 15px;
+    text-shadow: $largeShadow;
+}

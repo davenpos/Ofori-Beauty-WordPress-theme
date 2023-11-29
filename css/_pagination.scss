@@ -1,0 +1,30 @@
+nav#pagination {
+    text-align: center;
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        display: inline-block;
+        text-align: left;
+    }
+
+    li {
+        float: left;
+        padding: 8px 0;
+        border: 1px solid #cfc8d8;
+
+        * { padding: 8px; }
+        &:not(:last-of-type) {
+            border-right: none;
+        }
+        a {
+            text-shadow: none;
+            text-decoration: none;
+        }
+    }
+}
+
+span.page-numbers.current {
+    background: $lightpink !important;
+    color: $mediumgray !important;
+}

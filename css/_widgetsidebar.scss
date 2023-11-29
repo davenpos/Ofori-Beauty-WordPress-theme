@@ -1,0 +1,17 @@
+div.widgetSidebar {
+    @include roundedCorners;
+    padding: 0 10px 20px 10px;
+    margin-right: 80px;
+    float: right;
+    font-size: small;
+    @include fitContentWidth;
+
+    ul {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+    }
+
+    h2 { margin-bottom: 0; }
+    a { @include linkText; }
+}

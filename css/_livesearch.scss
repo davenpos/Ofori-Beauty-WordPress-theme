@@ -1,0 +1,54 @@
+.searchBox {
+    width: 90%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 24px;
+}
+
+div#searchOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    background-color: $semitransparentdeeppink;
+    opacity: 0;
+    transition: opacity $trans ease;
+
+    &.searchActive {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    input.searchTerm { @extend .searchBox; }
+
+    i#closeSearch {
+        position: absolute;
+        color: red;
+        text-shadow: 0.5px 0.5px 1px black;
+        cursor: pointer;
+        right: 20px;
+        &:hover { filter: brightness(90%); }
+    }
+
+    div#liveSearchResults {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        top: 72px;
+        width: calc(100% - $verticalPadding * 2);
+        margin-top: 10px;
+        height: calc(100% - 82px);
+        padding: 10px;
+        @include roundedCorners;
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+body.admin-bar div#searchOverlay { top: 32px; }

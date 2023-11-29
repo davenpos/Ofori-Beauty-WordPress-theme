@@ -11,13 +11,13 @@
             get_template_part($templatePartBeginning, get_post_type());
         endwhile; ?>
     </div>
-    <nav id="blogPostPagination"><?php echo paginate_links(array(
+    <nav id="pagination"><?php echo paginate_links(array(
         'prev_text' => '&larr;',
         'next_text' => '&rarr;',
         'type' => 'list'
     )); ?></nav>
     <?php else: ?>
-        <h1>No results found for for "<?php the_search_query(); ?>".</h1>
+        <h1>No results found for "<?php the_search_query(); ?>".</h1>
     <?php endif;
     get_search_form(); ?>
 </div>
