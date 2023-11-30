@@ -3,7 +3,6 @@ require get_theme_file_path('/inc/searchroute.php');
 
 function oforib_filesForSite() {
 	wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
-	wp_enqueue_style('main_styles', get_theme_file_uri('/build/main.css'));
 	wp_enqueue_style('font_awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 	wp_enqueue_style('custom_font', '//fonts.googleapis.com/css2?family=Roboto&display=swap');
 	wp_enqueue_script('main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
@@ -14,6 +13,7 @@ add_action('wp_enqueue_scripts', 'oforib_filesForSite');
 
 function oforib_siteFeatures() {
 	add_theme_support('title-tag');
+	register_nav_menu('topMenu', 'Top Menu');
 	register_nav_menu('resourcesMenu', 'Resources');
 	register_nav_menu('policiesMenu', 'Policies');
 }
@@ -60,7 +60,6 @@ add_filter('login_headerurl', 'oforib_loginHeaderURL');
 
 function oforib_loginScreenCSS() {
 	wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
-	wp_enqueue_style('main_styles', get_theme_file_uri('/build/main.css'));
 	wp_enqueue_style('custom_font', '//fonts.googleapis.com/css2?family=Roboto&display=swap');
 }
 
@@ -92,14 +91,19 @@ function oforib_commentsDisplay($comments, $depth) {
 	<?php endforeach;
 }
 
-function oforib_redirectLoggedOutShoppers() {
+function oforib_redirectUsers() {
 	if (!is_user_logged_in() && (is_account_page() || is_cart() || is_checkout())):
 		wp_redirect(wp_login_url());
 		exit;
 	endif;
+	
+	global $wp;
+	if (is_user_logged_in() && $wp->request == 'account/downloads') {
+		wp_redirect(esc_url(site_url('/account')));
+	}
 }
 
-add_action('template_redirect', 'oforib_redirectLoggedOutShoppers');
+add_action('template_redirect', 'oforib_redirectUsers');
 
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
@@ -117,15 +121,14 @@ function oforib_removeWooCommerceCustomization($wp_customize) {
 
 add_action('customize_register', 'oforib_removeWooCommerceCustomization');
 
-//Try uncommenting this out
-/*function oforib_removeAccountMenuLinks($menu_links) {
-	unset($menu_links['Download']);
-	unset($menu_links['Logout']);
-
-	return $menu_links;
+function oforib_editAccountMenu($items) {
+	$items['edit-address'] = 'Address';
+	unset($items['downloads']);
+	unset($items['customer-logout']);
+	return $items;
 }
 
-add_filter('woocommerce_account_menu_items', 'oforib_removeAccountMenuLinks');*/
+add_filter('woocommerce_account_menu_items', 'oforib_editAccountMenu');
 
 function oforib_ignoreCertainFiles($exclude_filters) {
 	$exclude_filters[] = 'oforibeautytheme/node_modules';

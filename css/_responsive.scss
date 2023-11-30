@@ -66,6 +66,15 @@
             grid-row: 2;
         }
     }
+
+    body.woocommerce-account div.woocommerce {
+        flex-direction: column;
+        div.woocommerce-MyAccount-content {
+            margin-top: 10px;
+            padding-left: 0;
+            width: 100%;
+        }
+    }
 }
 
 @media (max-width: 782px) {
@@ -97,7 +106,7 @@
 }
 
 @media (max-width: 450px) {
-    header, footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
+    header:not(.woocommerce-Address-title), footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
         padding-left: $phoneVerticalPadding;
         padding-right: $phoneVerticalPadding;
     }

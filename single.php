@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div class="blogColumns">
-    <div class="widgetSidebar">
+    <div class="widgetSidebar sideMenu">
         <?php dynamic_sidebar('Blog Sidebar'); ?>
     </div>
     <div class="textContent blogPage">

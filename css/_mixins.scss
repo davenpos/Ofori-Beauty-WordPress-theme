@@ -27,6 +27,6 @@
 }
 
 @mixin fitContentWidth {
-    width: -moz-fit-content;
-    width: fit-content;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
 }

@@ -30,3 +30,8 @@ div.blogArchives a { color: $deeppink; }
         &:hover { color: #aaaaaa !important; }
     }
 }
+
+div.widgetSidebar {
+    margin: 0 80px 0 10px;
+    float: right;
+}

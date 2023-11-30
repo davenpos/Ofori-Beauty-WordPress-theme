@@ -1,3 +1,10 @@
+/*
+Theme Name: Ofori Beauty
+Author: Simeon Davenport
+Description: The WordPress theme for the Ofori Beauty website
+Version: 1.0.0
+*/
+
 @import "variables";
 @import "mixins";
 @import "universal";
@@ -5,10 +12,10 @@
 @import "footer";
 @import "blog";
 @import "pagination";
-@import "widgetsidebar";
 @import "login";
 @import "comments";
 @import "services";
 @import "livesearch";
 @import "traditionalsearch";
+@import "woocommercepages";
 @import "responsive";

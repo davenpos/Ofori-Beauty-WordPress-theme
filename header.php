@@ -14,11 +14,11 @@
             <i id="closeMenu" class="fa fa-window-close fa-2x" aria-hidden="true"></i>
             <?php wp_nav_menu(array('theme_location' => 'topMenu')); ?>
             <?php if (is_user_logged_in()): ?>
-                <a href="<?php echo esc_url(site_url('/account')); ?>" class="headerRight nonIcon">Account</a>
+                <a href="<?php echo esc_url(site_url('/account')); ?>" class="headerRight nonIcon <?php if (is_account_page()) echo 'current-menu-item' ?>">Account</a>
                 <a href="<?php echo wp_logout_url(); ?>" class="headerRight nonIcon">Log Out</a>
                 </nav>
                 <a href="<?php echo esc_url(site_url('/cart')); ?>" class="headerRight">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <i class="fa fa-shopping-cart <?php if (is_cart()) echo 'current-menu-item' ?>" aria-hidden="true"></i>
                 </a>
             <?php else: ?>
                 <a href="<?php echo wp_login_url(); ?>" class="headerRight nonIcon">Log In</a>

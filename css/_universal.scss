@@ -22,24 +22,21 @@ div#mainContent {
 
 div.textContent, div#searchOverlay { padding: 0 $verticalPadding; }
 
-input[type=submit] { transition: $trans; }
-
 a, a i, input[type=submit], button[type=submit], i#closeSearch { transition: $trans; }
 
-input[type=submit], button[type=submit] {
-    background: var(--deeppink) !important;
-    border-color: var(--deeppink) !important;
+input[type=submit], button[type=submit], a.button {
+    background: $deeppink !important;
+    border-color: $deeppink !important;
     color: white !important;
     border: none !important;
     border-radius: 3px !important;
     cursor: pointer !important;
     font-weight: normal !important;
     padding: 10px;
+    &:hover { background: $mediumpink !important; }
 }
 
-input[type=submit]:hover, button { background: $mediumpink !important; }
-
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
     border-radius: 20px;
     padding-left: 8px !important;
 }
@@ -48,6 +45,28 @@ div.threeColumns {
     display: grid;
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sideMenu {
+    @include roundedCorners;
+    padding: 0 10px 20px 10px;
+    font-size: small;
+    @include fitContentWidth;
+    height: fit-content;
+
+    ul {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        li a { text-decoration: none; }
+        li.is-active a, li a[aria-current=page] {
+            text-decoration: underline;
+            color: $mediumpink !important;
+        }
+    }
+
+    h2 { margin-bottom: 0; }
+    a { @include linkText; }
 }
 
 h1#fourOhFourPage {
@@ -61,7 +80,7 @@ h1#fourOhFourPage {
 i.fa.fa-window-close {
     position: absolute;
     color: red;
-    text-shadow: 0.5px 0.5px 1px black;
+    text-shadow: $mediumShadow;
     cursor: pointer;
     &:hover { filter: brightness(90%); }
 }

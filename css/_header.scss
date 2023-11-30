@@ -1,4 +1,4 @@
-header {
+header:not(.woocommerce-Address-title) {
     @include headerFooter;
     background-color: $lightpink;
     color: $mediumpink;
@@ -9,24 +9,24 @@ header {
     nav#headerMenu {
         @include flexCenterItems;
         width: 100%;
+        li.current-menu-item a, li.current_page_parent a, a.current-menu-item { 
+            color: $plum;
+            text-decoration: underline;
+        }
     }
 
     ul.menu {
         @include flexCenterItems;
         padding-left: 0;
-        li {
-            margin: 0 10px;
-            &.current-menu-item a, &.current_page_parent a { 
-                color: $plum;
-                text-decoration: underline;
-            }
-        }
+        li { margin: 0 10px; }
     }
 
     a, a i, i.fa.fa-bars {
         color: $deeppink;
         &:hover { color: $plum; }
     }
+    
+    i.current-menu-item { color: $plum; }
 }
 
 .headerRight {
