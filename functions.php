@@ -100,6 +100,7 @@ function oforib_redirectUsers() {
 	global $wp;
 	if (is_user_logged_in() && $wp->request == 'account/downloads') {
 		wp_redirect(esc_url(site_url('/account')));
+		exit;
 	}
 }
 

@@ -34,7 +34,7 @@ div.textContent, div#searchOverlay {
   padding: 0 80px;
 }
 
-a, a i, input[type=submit], button[type=submit], i#closeSearch {
+a, a i, input[type=submit], button[type=submit], i#closeSearch, button.wc-block-cart-item__remove-link {
   transition: 0.3s;
 }
 
@@ -52,8 +52,8 @@ input[type=submit]:hover, button[type=submit]:hover, a.button:hover {
   background: rgb(239, 139, 161) !important;
 }
 
-input[type=text], input[type=password], input[type=email] {
-  border-radius: 20px;
+input[type=text], input[type=password], input[type=email], input[type=tel] {
+  border-radius: 30px !important;
   padding-left: 8px !important;
 }
 
@@ -393,20 +393,33 @@ div.serviceDescription p:last-of-type {
   margin-bottom: 5px;
 }
 
-p.price {
+.price {
   margin-top: 0;
   color: limegreen !important;
   font-size: 12px;
   text-shadow: 0.5px 0.5px 1px black;
 }
 
-label.variationLabel {
-  font-weight: bold;
-  margin-right: 5px;
+table.variations {
+  width: auto !important;
+  margin: 0 !important;
+}
+table.variations th, table.variations td {
+  padding-right: 8px;
 }
 
 button.single_add_to_cart_button {
   padding: 12px !important;
+}
+
+a.button.wc-forward {
+  background-color: inherit !important;
+  opacity: 1 !important;
+  font-weight: bold !important;
+}
+a.button.wc-forward:hover {
+  color: rgb(106, 95, 96) !important;
+  text-decoration: underline;
 }
 
 .searchBox, div#searchform input#s, div#searchOverlay input.searchTerm {
@@ -537,13 +550,79 @@ header.woocommerce-Address-title h3 {
   margin-top: 0;
 }
 
+button.wc-block-cart-item__remove-link {
+  cursor: pointer;
+  color: rgb(245, 83, 115) !important;
+}
+button.wc-block-cart-item__remove-link:hover {
+  color: rgb(239, 139, 161) !important;
+}
+
+a.wc-block-components-product-name {
+  font-weight: bold;
+}
+
+td.wc-block-cart-item__total {
+  padding-right: 0 !important;
+}
+
+div.wc-block-components-quantity-selector, th.wc-block-cart-items__header-product, td.wc-block-cart-item__image {
+  display: none;
+}
+
+td.wc-block-cart-item__total {
+  width: 15%;
+}
+
+a.wc-block-cart__submit-button {
+  background: rgb(245, 83, 115) !important;
+  border-color: rgb(245, 83, 115) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  font-weight: normal !important;
+  padding: 10px;
+  transition: 0.3s !important;
+  text-decoration: none;
+}
+a.wc-block-cart__submit-button:hover {
+  background: rgb(239, 139, 161) !important;
+}
+
+div.wc-block-components-order-summary-item__image {
+  display: none !important;
+}
+
+div.wc-block-components-order-summary-item__description {
+  padding-left: 0 !important;
+}
+
+body.woocommerce-checkout div.textContent input[type=text], body.woocommerce-checkout div.textContent input[type=email], body.woocommerce-checkout div.textContent input[type=tel] {
+  background-color: #ffe1ee !important;
+  color: rgb(59, 58, 58) !important;
+}
+body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button {
+  background: rgb(245, 83, 115) !important;
+  border-color: rgb(245, 83, 115) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  font-weight: normal !important;
+  padding: 10px;
+}
+body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button:hover {
+  background: rgb(239, 139, 161) !important;
+}
+
 @media (max-width: 925px) {
   i.fa.fa-bars {
     visibility: visible;
     width: auto;
     padding-left: 20px;
   }
-  header nav#headerMenu {
+  header:not(.woocommerce-Address-title) nav#headerMenu {
     position: absolute;
     left: 0;
     padding: 10px;
@@ -551,23 +630,23 @@ header.woocommerce-Address-title h3 {
     transition: top 0.3s ease-in-out;
     display: block;
   }
-  header nav#headerMenu * {
+  header:not(.woocommerce-Address-title) nav#headerMenu * {
     display: block;
     margin: 0;
   }
-  header nav#headerMenu a {
+  header:not(.woocommerce-Address-title) nav#headerMenu a {
     color: #ffe1ee;
     display: table-row;
   }
-  header nav#headerMenu a.headerRight {
+  header:not(.woocommerce-Address-title) nav#headerMenu a.headerRight {
     margin-left: 0;
     padding-left: 0;
   }
-  header nav#headerMenu li.current-menu-item a, header nav#headerMenu li.current_page_parent a, header nav#headerMenu a:hover {
+  header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a, header:not(.woocommerce-Address-title) nav#headerMenu a:hover {
     color: rgb(245, 0, 160);
     text-shadow: 0.25px 0.25px 0.5px black;
   }
-  header nav#headerMenu i#closeMenu {
+  header:not(.woocommerce-Address-title) nav#headerMenu i#closeMenu {
     display: block;
     right: 10px;
   }
@@ -615,11 +694,32 @@ header.woocommerce-Address-title h3 {
     width: 100%;
   }
 }
+@media (max-width: 876px) {
+  table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block tr.wc-block-cart-items__row {
+    display: block !important;
+    padding: 0 !important;
+  }
+  table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block tr.wc-block-cart-items__row td.wc-block-cart-item__total {
+    display: none;
+  }
+  table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block tr.wc-block-cart-items__row td.wc-block-cart-item__product {
+    margin: 0;
+  }
+  table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block tr.wc-block-cart-items__row td.wc-block-cart-item__product div.wc-block-cart-item__quantity {
+    padding: 0 !important;
+  }
+  table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block tr.wc-block-cart-items__row td.wc-block-cart-item__product a {
+    margin-top: 10px;
+  }
+  body.woocommerce-cart div.textContent h1 {
+    margin-bottom: calc(0.67em - 10px);
+  }
+}
 @media (max-width: 782px) {
   body.admin-bar {
     min-height: calc(100vh - 46px);
   }
-  body.admin-bar div#searchOverlay, body.admin-bar header nav#headerMenu {
+  body.admin-bar div#searchOverlay, body.admin-bar header:not(.woocommerce-Address-title) nav#headerMenu {
     top: 46px;
   }
   div.textContent.blogPage h1 {

@@ -30,9 +30,7 @@ header:not(.woocommerce-Address-title) {
 }
 
 .headerRight {
-    & ~ & {
-        margin-left: 0;
-    }
+    & ~ & { margin-left: 0; }
     padding-left: 20px;
     margin-left: auto;
 }

@@ -29,3 +29,34 @@ body.woocommerce-account {
 }
 
 header.woocommerce-Address-title h3 { margin-top: 0; }
+
+button.wc-block-cart-item__remove-link {
+    cursor: pointer;
+    color: $deeppink !important;
+    &:hover { color: $mediumpink !important; }
+}
+
+a.wc-block-components-product-name { font-weight: bold; }
+
+td.wc-block-cart-item__total { padding-right: 0 !important; }
+
+div.wc-block-components-quantity-selector, th.wc-block-cart-items__header-product, td.wc-block-cart-item__image { display: none; }
+td.wc-block-cart-item__total { width: 15%; }
+
+a.wc-block-cart__submit-button {
+    @include buttons;
+    transition: $trans !important;
+    text-decoration: none;
+}
+
+div.wc-block-components-order-summary-item__image { display: none !important; }
+div.wc-block-components-order-summary-item__description { padding-left: 0 !important; }
+
+body.woocommerce-checkout div.textContent {
+    input[type=text], input[type=email], input[type=tel] {
+        background-color: $lightpink !important;
+        color: $darkgray !important;
+    }
+
+    button.wc-block-components-checkout-place-order-button { @include buttons; }
+}

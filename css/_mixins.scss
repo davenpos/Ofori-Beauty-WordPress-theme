@@ -30,3 +30,15 @@
     width: -moz-fit-content !important;
     width: fit-content !important;
 }
+
+@mixin buttons {
+    background: $deeppink !important;
+    border-color: $deeppink !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+    font-weight: normal !important;
+    padding: 10px;
+    &:hover { background: $mediumpink !important; }
+}

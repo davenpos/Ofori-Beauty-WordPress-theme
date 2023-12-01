@@ -2,16 +2,27 @@ p.woocommerce-store-notice { padding: 5px 0; }
 
 div.serviceDescription p:last-of-type { margin-bottom: 5px; }
 
-p.price {
+.price {
     margin-top: 0;
     color: limegreen !important;
     font-size: 12px;
     text-shadow: $mediumShadow;
 }
 
-label.variationLabel {
-    font-weight: bold;
-    margin-right: 5px;
+table.variations {
+    width: auto !important;
+    margin: 0 !important;
+    th, td { padding-right: 8px; }
 }
 
 button.single_add_to_cart_button { padding: 12px !important; }
+
+a.button.wc-forward {
+    background-color: inherit !important;
+    opacity: 1 !important;
+    font-weight: bold !important;
+    &:hover {
+        color: $mediumgray !important;
+        text-decoration: underline;
+    }
+}

@@ -22,22 +22,12 @@ div#mainContent {
 
 div.textContent, div#searchOverlay { padding: 0 $verticalPadding; }
 
-a, a i, input[type=submit], button[type=submit], i#closeSearch { transition: $trans; }
+a, a i, input[type=submit], button[type=submit], i#closeSearch, button.wc-block-cart-item__remove-link { transition: $trans; }
 
-input[type=submit], button[type=submit], a.button {
-    background: $deeppink !important;
-    border-color: $deeppink !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 3px !important;
-    cursor: pointer !important;
-    font-weight: normal !important;
-    padding: 10px;
-    &:hover { background: $mediumpink !important; }
-}
+input[type=submit], button[type=submit], a.button { @include buttons; }
 
-input[type=text], input[type=password], input[type=email] {
-    border-radius: 20px;
+input[type=text], input[type=password], input[type=email], input[type=tel] {
+    border-radius: 30px !important;
     padding-left: 8px !important;
 }
 

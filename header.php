@@ -18,7 +18,7 @@
                 <a href="<?php echo wp_logout_url(); ?>" class="headerRight nonIcon">Log Out</a>
                 </nav>
                 <a href="<?php echo esc_url(site_url('/cart')); ?>" class="headerRight">
-                    <i class="fa fa-shopping-cart <?php if (is_cart()) echo 'current-menu-item' ?>" aria-hidden="true"></i>
+                    <i class="fa fa-shopping-cart <?php if (is_cart() || is_checkout()) echo 'current-menu-item' ?>" aria-hidden="true"></i>
                 </a>
             <?php else: ?>
                 <a href="<?php echo wp_login_url(); ?>" class="headerRight nonIcon">Log In</a>
