@@ -31,27 +31,6 @@ function oforib_addWidgetSidebar() {
 
 add_action('widgets_init', 'oforib_addWidgetSidebar');
 
-function oforib_redirectSubscribers() {
-	$currentUserRoles = wp_get_current_user()->roles;
-
-	if (count($currentUserRoles) == 1 && $currentUserRoles[0] == 'subscriber'):
-		wp_redirect(site_url('/'));
-		exit;
-	endif;
-}
-
-add_action('admin_init', 'oforib_redirectSubscribers');
-
-function oforib_removeAdminBar() {
-	$currentUserRoles = wp_get_current_user()->roles;
-
-	if (count($currentUserRoles) == 1 && $currentUserRoles[0] == 'subscriber'):
-		show_admin_bar(false);
-	endif;
-}
-
-add_action('wp_loaded', 'oforib_removeAdminBar');
-
 function oforib_loginHeaderURL() {
 	return esc_url(site_url('/'));
 }
