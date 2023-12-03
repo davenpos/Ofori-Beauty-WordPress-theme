@@ -23,6 +23,13 @@ class LiveSearch {
     }
 
     openOverlay() {
+        var topPos = 0
+        if ($('body').hasClass("admin-bar") && $(window).width() <= 450) {
+            if ($(window).scrollTop() < 46) {
+                topPos = -($(window).scrollTop() - 46)
+            }
+            this.searchOverlay.css("top", topPos + "px")
+        }
         this.searchOverlay.css("opacity", "1")
         $('html, body').css('overflow', 'hidden')
         this.searchOverlay.addClass("searchActive")

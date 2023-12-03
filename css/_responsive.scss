@@ -149,8 +149,7 @@
 
     div.blogColumns div.widgetSidebar { margin: 0 $phoneVerticalPadding; }
 
-    body.admin-bar div#searchOverlay {
-        top: 0;
+    body div#searchOverlay {
         display: block;
         input.searchTerm { width: 86%; }
         i#closeSearch { right: 10px; }
