@@ -20,20 +20,21 @@
         a {
             color: $lightpink;
             display: table-row;
-            &.headerRight {
-                margin-left: 0;
-                padding-left: 0;
-            }
         }
-        li {
+        li, div.headerRight {
             border-bottom: 1px solid white;
             margin-right: 50px;
         }
-        li.current-menu-item a, li.current_page_parent a {
+        div.headerRight ~ div.headerRight { border-bottom: none; }
+        li.current-menu-item a, li.current_page_parent a, li a:hover {
             font-weight: bold;
-            color: white;
+            color: white !important;
             text-shadow: $smallShadow;
             text-decoration: none;
+        }
+        .headerRight {
+            margin-left: 0;
+            padding-left: 0;
         }
         i#closeMenu {
             display: block;
@@ -105,7 +106,7 @@
 @media (max-width: 782px) {
     body.admin-bar {
         min-height: calc(100vh - 46px);
-        div#searchOverlay, header:not(.woocommerce-Address-title) nav#headerMenu { top: 46px; }
+        header:not(.woocommerce-Address-title) nav#headerMenu { top: 46px; }
     }
 
     div.textContent.blogPage h1 { margin-top: 5px; }
@@ -128,6 +129,16 @@
         margin: auto;
         img { height: 100px; }
     }
+
+    h1#fourOhFourPage { font-size: 48px; }
+}
+
+@media (max-width: 525px) {
+    input.tnp-email { margin: 0 !important; }
+    input.tnp-submit {
+        width: 70% !important;
+        margin: 10px auto 0 auto !important;
+    }
 }
 
 @media (max-width: 450px) {
@@ -138,7 +149,8 @@
 
     div.blogColumns div.widgetSidebar { margin: 0 $phoneVerticalPadding; }
 
-    div#searchOverlay {
+    body.admin-bar div#searchOverlay {
+        top: 0;
         display: block;
         input.searchTerm { width: 86%; }
         i#closeSearch { right: 10px; }

@@ -64,7 +64,7 @@ div.threeColumns {
 }
 
 .sideMenu, body.woocommerce-account nav.woocommerce-MyAccount-navigation {
-  background-color: rgb(252, 202, 220);
+  background-color: #ffe1ee;
   border-radius: 10px;
   padding: 0 10px 20px 10px;
   font-size: small;
@@ -80,9 +80,12 @@ div.threeColumns {
 .sideMenu ul li a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a {
   text-decoration: none;
 }
-.sideMenu ul li.is-active a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.is-active a, .sideMenu ul li a[aria-current=page], body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a[aria-current=page] {
+.sideMenu ul li a:hover, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a:hover {
+  color: rgb(245, 0, 160) !important;
+}
+.sideMenu ul li.is-active a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.is-active a, .sideMenu ul li a[aria-current=page], body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a[aria-current=page], .sideMenu ul li.current-menu-item a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.current-menu-item a, .sideMenu ul li.current_page_parent a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.current_page_parent a, .sideMenu ul a.current-menu-item, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul a.current-menu-item {
   text-decoration: underline;
-  color: rgb(239, 139, 161) !important;
+  color: rgb(245, 0, 160) !important;
 }
 .sideMenu h2, body.woocommerce-account nav.woocommerce-MyAccount-navigation h2 {
   margin-bottom: 0;
@@ -93,6 +96,7 @@ h1#fourOhFourPage {
   text-align: center;
   font-size: 64px;
   margin-top: 15px;
+  margin-bottom: 0;
   text-shadow: 1px 1px 1.5px black;
 }
 
@@ -130,9 +134,15 @@ header:not(.woocommerce-Address-title) nav#headerMenu {
   align-items: center;
   width: 100%;
 }
-header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a, header:not(.woocommerce-Address-title) nav#headerMenu a.current-menu-item {
-  color: rgb(245, 0, 160);
+header:not(.woocommerce-Address-title) nav#headerMenu li a {
+  text-decoration: none;
+}
+header:not(.woocommerce-Address-title) nav#headerMenu li a:hover {
+  color: rgb(245, 0, 160) !important;
+}
+header:not(.woocommerce-Address-title) nav#headerMenu li.is-active a, header:not(.woocommerce-Address-title) nav#headerMenu li a[aria-current=page], header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a, header:not(.woocommerce-Address-title) nav#headerMenu a.current-menu-item {
   text-decoration: underline;
+  color: rgb(245, 0, 160) !important;
 }
 header:not(.woocommerce-Address-title) ul.menu {
   display: flex;
@@ -324,7 +334,7 @@ body.login div#login h1 a {
 body.login form#loginform {
   margin: 0;
   border: 1px solid black;
-  background-color: rgb(252, 202, 220);
+  background-color: #ffe1ee;
   border-radius: 10px;
 }
 body.login input[type=password] {
@@ -462,7 +472,7 @@ div#searchOverlay div#liveSearchResults {
   margin-top: 10px;
   height: calc(100% - 82px);
   padding: 10px;
-  background-color: rgb(252, 202, 220);
+  background-color: #ffe1ee;
   border-radius: 10px;
   border-radius: 10px 10px 0 0;
 }
@@ -494,6 +504,7 @@ body.admin-bar div#searchOverlay {
 
 div#searchform {
   text-align: center;
+  margin-top: 10px;
 }
 div#searchform input#s {
   background-color: #ffe1ee;
@@ -637,19 +648,22 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
     color: #ffe1ee;
     display: table-row;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu a.headerRight {
-    margin-left: 0;
-    padding-left: 0;
-  }
-  header:not(.woocommerce-Address-title) nav#headerMenu li {
+  header:not(.woocommerce-Address-title) nav#headerMenu li, header:not(.woocommerce-Address-title) nav#headerMenu div.headerRight {
     border-bottom: 1px solid white;
     margin-right: 50px;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a {
+  header:not(.woocommerce-Address-title) nav#headerMenu div.headerRight ~ div.headerRight {
+    border-bottom: none;
+  }
+  header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a, header:not(.woocommerce-Address-title) nav#headerMenu li a:hover {
     font-weight: bold;
-    color: white;
+    color: white !important;
     text-shadow: 0.25px 0.25px 0.5px black;
     text-decoration: none;
+  }
+  header:not(.woocommerce-Address-title) nav#headerMenu .headerRight {
+    margin-left: 0;
+    padding-left: 0;
   }
   header:not(.woocommerce-Address-title) nav#headerMenu i#closeMenu {
     display: block;
@@ -725,7 +739,7 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
   body.admin-bar {
     min-height: calc(100vh - 46px);
   }
-  body.admin-bar div#searchOverlay, body.admin-bar header:not(.woocommerce-Address-title) nav#headerMenu {
+  body.admin-bar header:not(.woocommerce-Address-title) nav#headerMenu {
     top: 46px;
   }
   div.textContent.blogPage h1 {
@@ -749,6 +763,18 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
   a#logoFooter img {
     height: 100px;
   }
+  h1#fourOhFourPage {
+    font-size: 48px;
+  }
+}
+@media (max-width: 525px) {
+  input.tnp-email {
+    margin: 0 !important;
+  }
+  input.tnp-submit {
+    width: 70% !important;
+    margin: 10px auto 0 auto !important;
+  }
 }
 @media (max-width: 450px) {
   header:not(.woocommerce-Address-title), footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
@@ -758,19 +784,20 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
   div.blogColumns div.widgetSidebar {
     margin: 0 10px;
   }
-  div#searchOverlay {
+  body.admin-bar div#searchOverlay {
+    top: 0;
     display: block;
   }
-  div#searchOverlay input.searchTerm {
+  body.admin-bar div#searchOverlay input.searchTerm {
     width: 86%;
   }
-  div#searchOverlay i#closeSearch {
+  body.admin-bar div#searchOverlay i#closeSearch {
     right: 10px;
   }
-  div#searchOverlay div#liveSearchResults {
+  body.admin-bar div#searchOverlay div#liveSearchResults {
     width: calc(100% - 20px);
   }
-  div#searchOverlay div#liveSearchResults div.threeColumns {
+  body.admin-bar div#searchOverlay div#liveSearchResults div.threeColumns {
     grid-template-columns: 1fr;
   }
   div#servicesSearchResults {

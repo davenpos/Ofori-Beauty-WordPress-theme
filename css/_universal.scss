@@ -48,11 +48,7 @@ div.threeColumns {
         margin: 0;
         list-style: none;
         padding: 0;
-        li a { text-decoration: none; }
-        li.is-active a, li a[aria-current=page] {
-            text-decoration: underline;
-            color: $mediumpink !important;
-        }
+        @include headerAndSidebarLinks;
     }
 
     h2 { margin-bottom: 0; }
@@ -63,6 +59,7 @@ h1#fourOhFourPage {
     text-align: center;
     font-size: 64px;
     margin-top: 15px;
+    margin-bottom: 0;
     text-shadow: $largeShadow;
 }
 

@@ -35,6 +35,9 @@ class StickyHeader {
         }
 
         if (currentScroll > this.headerHeight) {
+            if (!this.lastScrollTop) {
+                this.lastScrollTop = currentScroll - 0.01
+            }
             if (currentScroll > this.lastScrollTop) {
                 this.header.css({
                     "position": "fixed",

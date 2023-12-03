@@ -9,10 +9,7 @@ header:not(.woocommerce-Address-title) {
     nav#headerMenu {
         @include flexCenterItems;
         width: 100%;
-        li.current-menu-item a, li.current_page_parent a, a.current-menu-item { 
-            color: $plum;
-            text-decoration: underline;
-        }
+        @include headerAndSidebarLinks;
     }
 
     ul.menu {

@@ -16,13 +16,24 @@
     ul.menu { list-style: none; }
 }
 
+@mixin headerAndSidebarLinks {
+    li a {
+        text-decoration: none;
+        &:hover { color: $plum !important; }
+    }
+    li.is-active a, li a[aria-current=page], li.current-menu-item a, li.current_page_parent a, a.current-menu-item {
+        text-decoration: underline;
+        color: $plum !important;
+    }
+}
+
 @mixin flexCenterItems {
     display: flex;
     align-items: center;
 }
 
 @mixin roundedCorners {
-    background-color: rgb(252, 202, 220);
+    background-color: $lightpink;
     border-radius: 10px;
 }
 

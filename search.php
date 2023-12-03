@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <div class="textContent">
-    <?php if (have_posts()): ?>
+    <?php get_search_form();
+    if (have_posts()): ?>
     <h1>Search results for "<?php the_search_query(); ?>":</h1>
     <div id="searchResults">
         <?php while (have_posts()): the_post();
@@ -18,7 +19,6 @@
     )); ?></nav>
     <?php else: ?>
         <h1>No results found for "<?php the_search_query(); ?>".</h1>
-    <?php endif;
-    get_search_form(); ?>
+    <?php endif; ?>
 </div>
 <?php get_footer(); ?>
