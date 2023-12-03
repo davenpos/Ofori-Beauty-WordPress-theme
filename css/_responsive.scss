@@ -15,6 +15,7 @@
         * {
             display: block;
             margin: 0;
+            font-size: 20px;
         }
         a {
             color: $lightpink;
@@ -24,13 +25,20 @@
                 padding-left: 0;
             }
         }
-        li.current-menu-item a, li.current_page_parent a, a:hover {
-            color: $plum;
+        li {
+            border-bottom: 1px solid white;
+            margin-right: 50px;
+        }
+        li.current-menu-item a, li.current_page_parent a {
+            font-weight: bold;
+            color: white;
             text-shadow: $smallShadow;
+            text-decoration: none;
         }
         i#closeMenu {
             display: block;
             right: 10px;
+            font-size: 40px;
         }
     }
 

@@ -56,7 +56,6 @@ div.threeColumns {
     }
 
     h2 { margin-bottom: 0; }
-    a { @include linkText; }
 }
 
 h1#fourOhFourPage {
@@ -74,3 +73,5 @@ i.fa.fa-window-close {
     cursor: pointer;
     &:hover { filter: brightness(90%); }
 }
+
+input.tnp-email { background-color: $lightpink !important; }

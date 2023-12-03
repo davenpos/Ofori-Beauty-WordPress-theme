@@ -87,12 +87,6 @@ div.threeColumns {
 .sideMenu h2, body.woocommerce-account nav.woocommerce-MyAccount-navigation h2 {
   margin-bottom: 0;
 }
-.sideMenu a, body.woocommerce-account nav.woocommerce-MyAccount-navigation a {
-  color: rgb(245, 83, 115);
-}
-.sideMenu a:hover, body.woocommerce-account nav.woocommerce-MyAccount-navigation a:hover {
-  color: rgb(239, 139, 161);
-}
 
 h1#fourOhFourPage {
   color: rgb(245, 83, 115);
@@ -110,6 +104,10 @@ i.fa.fa-window-close {
 }
 i.fa.fa-window-close:hover {
   filter: brightness(90%);
+}
+
+input.tnp-email {
+  background-color: #ffe1ee !important;
 }
 
 header:not(.woocommerce-Address-title) {
@@ -267,7 +265,7 @@ div.blogArchives a {
 
 .smallBlogPostText, .smallBlogPostText a {
   color: #777777 !important;
-  text-shadow: 0.5px 0.5px 1px black !important;
+  text-shadow: 0.25px 0.25px 0.5px black !important;
   font-size: 12px;
   margin: 0;
 }
@@ -440,7 +438,7 @@ div#searchOverlay {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  background-color: rgba(245, 83, 115, 0.75);
+  background-color: rgba(245, 83, 115, 0.9);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -626,13 +624,14 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
     position: absolute;
     left: 0;
     padding: 10px;
-    background-color: rgba(245, 83, 115, 0.75);
+    background-color: rgba(245, 83, 115, 0.9);
     transition: top 0.3s ease-in-out;
     display: block;
   }
   header:not(.woocommerce-Address-title) nav#headerMenu * {
     display: block;
     margin: 0;
+    font-size: 20px;
   }
   header:not(.woocommerce-Address-title) nav#headerMenu a {
     color: #ffe1ee;
@@ -642,13 +641,20 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
     margin-left: 0;
     padding-left: 0;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a, header:not(.woocommerce-Address-title) nav#headerMenu a:hover {
-    color: rgb(245, 0, 160);
+  header:not(.woocommerce-Address-title) nav#headerMenu li {
+    border-bottom: 1px solid white;
+    margin-right: 50px;
+  }
+  header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a {
+    font-weight: bold;
+    color: white;
     text-shadow: 0.25px 0.25px 0.5px black;
+    text-decoration: none;
   }
   header:not(.woocommerce-Address-title) nav#headerMenu i#closeMenu {
     display: block;
     right: 10px;
+    font-size: 40px;
   }
   div.blogColumns {
     display: -webkit-flex;
