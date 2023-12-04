@@ -174,13 +174,7 @@ class MobileMenu {
     this.headerHeight = jquery__WEBPACK_IMPORTED_MODULE_0___default()('header').outerHeight();
     this.top = 0;
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
-      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() < 782) {
-        this.top = 46;
-      } else {
-        this.top = 32;
-      }
-    } else {
-      this.top = 0;
+      this.top = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() < 782 ? 46 : 32;
     }
   }
 }
@@ -222,7 +216,7 @@ class StickyHeader {
       if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 782) {
         this.top = 32;
       } else {
-        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 600) {
           this.top = 0;
         } else {
           this.top = 46;
@@ -232,7 +226,7 @@ class StickyHeader {
   }
   toggleHeader() {
     const currentScroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 600) {
       this.headerHeight += 46;
     }
     if (currentScroll > this.headerHeight) {
@@ -245,12 +239,12 @@ class StickyHeader {
           "width": "100%",
           "top": "-" + this.headerHeight + "px"
         });
-        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 600) {
           this.headerHeight -= 46;
         }
         this.mainContent.css("padding-top", this.headerHeight + "px");
       } else {
-        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 600) {
           this.headerHeight -= 46;
         }
         this.header.css({
@@ -259,11 +253,11 @@ class StickyHeader {
         });
       }
     } else {
-      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 600) {
         this.headerHeight -= 46;
       }
     }
-    if (window.scrollY == 0 || window.scrollY <= 46 && jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
+    if (window.scrollY == 0 || window.scrollY <= 46 && jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 600) {
       this.header.css({
         "position": "",
         "width": "",

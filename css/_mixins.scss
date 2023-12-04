@@ -9,7 +9,7 @@
 }
 
 @mixin headerFooter {
-    a, a i {
+    a:not(.wp-block-social-link-anchor), a i {
         text-decoration: none;
         font-size: 16px;
     }

@@ -17,9 +17,10 @@
                     <img class="siteLogo" src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo" height="100">
                 </a>
             </div>
-            <div id="socials">
+            <?php dynamic_sidebar('Socials'); ?>
+            <!--<div id="socials">
                 <a href="https://www.instagram.com/oforibeautyy/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-            </div>
+            </div>-->
             <p id="smallFooterText">&copy; <?php echo date("Y"); ?> Ofori Beauty<br>WordPress site created by Simeon Davenport</p>
 		</footer>
 		<?php wp_footer(); ?>

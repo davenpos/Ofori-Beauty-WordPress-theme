@@ -106,10 +106,7 @@
 }
 
 @media (max-width: 782px) {
-    body.admin-bar {
-        min-height: calc(100vh - 46px);
-        //header:not(.woocommerce-Address-title) nav#headerMenu { top: 46px; }
-    }
+    body.admin-bar { min-height: calc(100vh - 46px); }
 
     div.textContent.blogPage h1 { margin-top: 5px; }
 
@@ -135,15 +132,7 @@
     h1#fourOhFourPage { font-size: 48px; }
 }
 
-@media (max-width: 525px) {
-    input.tnp-email { margin: 0 !important; }
-    input.tnp-submit {
-        width: 70% !important;
-        margin: 10px auto 0 auto !important;
-    }
-}
-
-@media (max-width: 450px) {
+@media (max-width: 600px) {
     header:not(.woocommerce-Address-title), footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
         padding-left: $phoneVerticalPadding;
         padding-right: $phoneVerticalPadding;
@@ -164,5 +153,13 @@
     div#servicesSearchResults {
         grid-column: auto / auto !important;
         grid-row: auto / auto !important;
+    }
+}
+
+@media (max-width: 525px) {
+    input.tnp-email { margin: 0 !important; }
+    input.tnp-submit {
+        width: 70% !important;
+        margin: 10px auto 0 auto !important;
     }
 }

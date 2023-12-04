@@ -23,10 +23,10 @@ div#mainContent {
   flex: 1;
   margin-bottom: 8px;
 }
-div#mainContent a {
+div#mainContent a:not(.wp-block-social-link-anchor) {
   color: rgb(245, 83, 115);
 }
-div#mainContent a:hover {
+div#mainContent a:not(.wp-block-social-link-anchor):hover {
   color: rgb(239, 139, 161);
 }
 
@@ -110,8 +110,12 @@ i.fa.fa-window-close:hover {
   filter: brightness(90%);
 }
 
-input.tnp-email {
+input.tnp-email, input.tnp-name {
   background-color: #ffe1ee !important;
+}
+
+input.tnp-submit {
+  margin: auto !important;
 }
 
 header:not(.woocommerce-Address-title) {
@@ -122,7 +126,7 @@ header:not(.woocommerce-Address-title) {
   padding: 15px 80px;
   z-index: 100;
 }
-header:not(.woocommerce-Address-title) a, header:not(.woocommerce-Address-title) a i {
+header:not(.woocommerce-Address-title) a:not(.wp-block-social-link-anchor), header:not(.woocommerce-Address-title) a i {
   text-decoration: none;
   font-size: 16px;
 }
@@ -195,7 +199,7 @@ footer {
   padding: 20px 80px 0;
   color: rgb(106, 95, 96);
 }
-footer a, footer a i {
+footer a:not(.wp-block-social-link-anchor), footer a i {
   text-decoration: none;
   font-size: 16px;
 }
@@ -210,10 +214,10 @@ footer p#smallFooterText {
   text-align: center;
   margin-top: 0;
 }
-footer a, footer a i {
+footer a:not(.wp-block-social-link-anchor), footer a i {
   color: rgb(106, 95, 96) !important;
 }
-footer a:hover, footer a i:hover {
+footer a:not(.wp-block-social-link-anchor):hover, footer a i:hover {
   color: rgb(59, 58, 58) !important;
 }
 footer ul.menu {
@@ -238,11 +242,8 @@ footer a#logoFooter {
   width: -moz-fit-content !important;
   width: fit-content !important;
 }
-footer div#socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
+footer ul.wp-block-social-links {
+  margin: 10px 0;
 }
 
 h1.archiveHeader {
@@ -768,16 +769,7 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
     font-size: 48px;
   }
 }
-@media (max-width: 525px) {
-  input.tnp-email {
-    margin: 0 !important;
-  }
-  input.tnp-submit {
-    width: 70% !important;
-    margin: 10px auto 0 auto !important;
-  }
-}
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   header:not(.woocommerce-Address-title), footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
     padding-left: 10px;
     padding-right: 10px;
@@ -803,5 +795,14 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
   div#servicesSearchResults {
     grid-column: auto/auto !important;
     grid-row: auto/auto !important;
+  }
+}
+@media (max-width: 525px) {
+  input.tnp-email {
+    margin: 0 !important;
+  }
+  input.tnp-submit {
+    width: 70% !important;
+    margin: 10px auto 0 auto !important;
   }
 }/*# sourceMappingURL=style.css.map */

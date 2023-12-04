@@ -15,7 +15,7 @@ body {
 div#mainContent {
     flex: 1;
     margin-bottom: 8px;
-    a {
+    a:not(.wp-block-social-link-anchor) {
         @include linkText;
     }
 }
@@ -71,4 +71,5 @@ i.fa.fa-window-close {
     &:hover { filter: brightness(90%); }
 }
 
-input.tnp-email { background-color: $lightpink !important; }
+input.tnp-email, input.tnp-name { background-color: $lightpink !important; }
+input.tnp-submit { margin: auto !important; }

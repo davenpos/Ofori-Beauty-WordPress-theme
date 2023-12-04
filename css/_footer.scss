@@ -14,7 +14,7 @@ footer {
         margin-top: 0;
     }
 
-    a, a i { @include darkLinkText; }
+    a:not(.wp-block-social-link-anchor), a i { @include darkLinkText; }
 
     ul.menu {
         margin: 0;
@@ -37,9 +37,5 @@ footer {
         @include fitContentWidth;
     }
 
-    div#socials {
-        @include flexCenterItems;
-        justify-content: center;
-        padding: 10px 0;
-    }
+    ul.wp-block-social-links { margin: 10px 0; }
 }

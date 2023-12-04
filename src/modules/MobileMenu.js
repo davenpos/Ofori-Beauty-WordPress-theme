@@ -46,13 +46,7 @@ class MobileMenu {
         this.headerHeight = $('header').outerHeight()
         this.top = 0
         if ($('body').hasClass("admin-bar")) {
-            if ($(window).width() < 782) {
-                this.top = 46
-            } else {
-                this.top = 32
-            }
-        } else {
-            this.top = 0
+            this.top = ($(window).width() < 782) ? 46 : 32;
         }
     }
 }

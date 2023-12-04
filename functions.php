@@ -27,6 +27,12 @@ function oforib_addWidgetSidebar() {
 		'before_widget' => '<div>',
 		'after_widget' => '</div>'
 	));
+	register_sidebar(array(
+		'name' => 'Socials',
+		'id' => 'socials',
+		'before_widget' => '<div>',
+		'after_widget' => '</div>'
+	));
 }
 
 add_action('widgets_init', 'oforib_addWidgetSidebar');

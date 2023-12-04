@@ -24,7 +24,7 @@ class StickyHeader {
             if ($(window).width() >= 782) {
                 this.top = 32
             } else {
-                if ($(window).width() <= 450) {
+                if ($(window).width() <= 600) {
                     this.top = 0
                 } else {
                     this.top = 46
@@ -36,7 +36,7 @@ class StickyHeader {
     toggleHeader() {
         const currentScroll = $(window).scrollTop()
 
-        if ($(window).width() <= 450) {
+        if ($(window).width() <= 600) {
             this.headerHeight += 46
         }
 
@@ -50,12 +50,12 @@ class StickyHeader {
                     "width": "100%",
                     "top": "-" + this.headerHeight + "px"
                 })
-                if ($(window).width() <= 450) {
+                if ($(window).width() <= 600) {
                     this.headerHeight -= 46
                 }
                 this.mainContent.css("padding-top", this.headerHeight + "px")
             } else {
-                if ($(window).width() <= 450) {
+                if ($(window).width() <= 600) {
                     this.headerHeight -= 46
                 }
                 this.header.css({
@@ -64,12 +64,12 @@ class StickyHeader {
                 })
             }
         } else {
-            if ($(window).width() <= 450) {
+            if ($(window).width() <= 600) {
                 this.headerHeight -= 46
             }
         }
 
-        if (window.scrollY == 0 || (window.scrollY <= 46 && $(window).width() <= 450)) {
+        if (window.scrollY == 0 || (window.scrollY <= 46 && $(window).width() <= 600)) {
             this.header.css({
                 "position": "",
                 "width": "",
