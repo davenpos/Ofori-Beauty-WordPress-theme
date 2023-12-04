@@ -27,6 +27,8 @@ class LiveSearch {
         if ($('body').hasClass("admin-bar") && $(window).width() <= 450) {
             if ($(window).scrollTop() < 46) {
                 topPos = -($(window).scrollTop() - 46)
+            } else {
+                $('nav#headerMenu').css("top", "0")
             }
             this.searchOverlay.css("top", topPos + "px")
         }

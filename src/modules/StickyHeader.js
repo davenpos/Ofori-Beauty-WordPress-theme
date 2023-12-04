@@ -23,6 +23,12 @@ class StickyHeader {
         if ($('body').hasClass("admin-bar")) {
             if ($(window).width() >= 782) {
                 this.top = 32
+            } else {
+                if ($(window).width() <= 450) {
+                    this.top = 0
+                } else {
+                    this.top = 46
+                }
             }
         }
     }

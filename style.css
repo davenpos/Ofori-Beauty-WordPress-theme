@@ -632,12 +632,16 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
     padding-left: 20px;
   }
   header:not(.woocommerce-Address-title) nav#headerMenu {
+    transform: translateY(-100%);
     position: absolute;
     left: 0;
     padding: 10px;
     background-color: rgba(245, 83, 115, 0.9);
-    transition: top 0.3s ease-in-out;
+    transition: 0.3s;
     display: block;
+  }
+  header:not(.woocommerce-Address-title) nav#headerMenu.mobileMenuVisible {
+    transform: translateY(0);
   }
   header:not(.woocommerce-Address-title) nav#headerMenu * {
     display: block;
@@ -738,9 +742,6 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
 @media (max-width: 782px) {
   body.admin-bar {
     min-height: calc(100vh - 46px);
-  }
-  body.admin-bar header:not(.woocommerce-Address-title) nav#headerMenu {
-    top: 46px;
   }
   div.textContent.blogPage h1 {
     margin-top: 5px;

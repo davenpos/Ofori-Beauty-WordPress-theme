@@ -6,22 +6,15 @@ class MobileMenu {
         this.closeButton = $('i#closeMenu')
         this.navMenu = $('nav#headerMenu')
         this.menuOpen = false
-        this.top = 0
-        if ($('body').hasClass("admin-bar")) {
-            if ($(window).width() < 782) {
-                this.top = 46
-            } else {
-                this.top = 32
-            }
-        } else {
-            this.top = 0
-        }
-        this.navMenu.css('top', -this.navMenu.outerHeight() + 'px')
+        this.headerHeight
+        this.top
+        this.setVariables()
+        this.navMenu.removeClass('mobileMenuVisible')
         this.events()
     }
 
     events() {
-        $(window).on("resize", () => this.navMenu.css('top', -this.navMenu.outerHeight() + 'px'))
+        $(window).on("resize", () => this.setVariables())
         this.menuButton.on("click", () => this.openMobileMenu())
         this.closeButton.on("click", () => this.closeMobileMenu())
         $(document).on("click", (e) => {
@@ -32,19 +25,35 @@ class MobileMenu {
     }
 
     openMobileMenu() {
-        if ($(window).scrollTop() > $('header').outerHeight()) {
+        if ($(window).scrollTop() > this.headerHeight) {
             this.navMenu.css('top', '0')
         } else {
             this.navMenu.css('top', this.top + 'px')
         }
+        this.navMenu.addClass('mobileMenuVisible')
         $('html, body').css('overflow', 'hidden')
         this.menuOpen = true
     }
 
     closeMobileMenu() {
         $('html, body').css('overflow', '')
-        this.navMenu.css('top', -this.navMenu.outerHeight() + 'px')
+        this.navMenu.removeClass('mobileMenuVisible')
+        this.navMenu.css('top', '0')
         this.menuOpen = false
+    }
+
+    setVariables() {
+        this.headerHeight = $('header').outerHeight()
+        this.top = 0
+        if ($('body').hasClass("admin-bar")) {
+            if ($(window).width() < 782) {
+                this.top = 46
+            } else {
+                this.top = 32
+            }
+        } else {
+            this.top = 0
+        }
     }
 }
 
