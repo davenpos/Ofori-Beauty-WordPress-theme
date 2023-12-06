@@ -12,14 +12,8 @@ body.login {
     form#loginform {
         margin: 0;
         border: 1px solid black;
-        @include roundedCorners;
-    }
-
-    input[type=password] { border-radius: 20px 0 0 20px; }
-    
-    button.wp-hide-pw {
-        border: 1px solid #8c8f94 !important;
-        border-radius: 0 !important;
+        border-radius: 10px;
+        background-color: rgb(252, 202, 220);
     }
     
     button.wp-hide-pw span, select#language-switcher-locales { color: $mediumgray; }
@@ -29,5 +23,8 @@ body.login {
         a.privacy-policy-link { @include linkText; }
     }
 
-    p a { @include darkLinkText; }
+    p a {
+        color: $mediumgray !important;
+        &:hover { color: $darkgray !important; }
+    }
 }

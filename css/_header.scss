@@ -1,7 +1,6 @@
-header:not(.woocommerce-Address-title) {
+header#siteHeader {
     @include headerFooter;
     background-color: $lightpink;
-    color: $mediumpink;
     @include flexCenterItems;
     padding: 15px $verticalPadding;
     z-index: 100;

@@ -24,16 +24,16 @@ class LiveSearch {
 
     openOverlay() {
         var topPos = 0
-        if ($('body').hasClass("admin-bar") && $(window).width() <= 450) {
-            if ($(window).scrollTop() < 46) {
+        if ($('body').hasClass("admin-bar")) {
+            if ($(window).width() <= 600) {
                 topPos = -($(window).scrollTop() - 46)
             } else {
                 $('nav#headerMenu').css("top", "0")
             }
-            this.searchOverlay.css("top", topPos + "px")
         }
+        
         this.searchOverlay.css("opacity", "1")
-        $('html, body').css('overflow', 'hidden')
+        $('body').addClass('noScroll')
         this.searchOverlay.addClass("searchActive")
         this.searchBar.val('')
         this.searchResultsDiv.html('')
@@ -44,7 +44,7 @@ class LiveSearch {
 
     closeOverlay() {
         this.searchOverlay.css("opacity", "0")
-        $('html, body').css('overflow', '')
+        $('body').removeClass('noScroll')
         setTimeout(() => this.searchOverlay.removeClass("searchActive"), 300)
         this.overlayOpen = false
     }

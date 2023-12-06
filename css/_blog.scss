@@ -12,7 +12,7 @@ div.textContent {
             a { text-shadow: $mediumShadow; }
         }
     }
-    :not(p.smallBlogPostText) a { color: $deeppink; }
+    :not(p.smallBlogPostText) a { @include linkText; }
     div.postContent a { text-shadow: none; }
 }
 
@@ -20,14 +20,14 @@ div.blogArchives a { color: $deeppink; }
 
 .smallBlogPostText {
     &, & a {
-        color: #777777 !important;
-        text-shadow: $smallShadow !important;
+        color: #777777;
+        text-shadow: $smallShadow;
         font-size: 12px;
         margin: 0;
     }
     a {
         font-weight: bold;
-        &:hover { color: #aaaaaa !important; }
+        &:hover { color: #aaaaaa; }
     }
 }
 

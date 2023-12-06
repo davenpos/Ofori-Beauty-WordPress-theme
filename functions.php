@@ -101,8 +101,8 @@ function oforib_removeWooCommerceCustomization($wp_customize) {
 	$wp_customize->remove_control('woocommerce_shop_page_display');
 	$wp_customize->remove_setting('woocommerce_category_archive_display');
 	$wp_customize->remove_control('woocommerce_category_archive_display');
-	$wp_customize->remove_setting('woocommerce_catalog_columns');
-	$wp_customize->remove_control('woocommerce_catalog_columns');
+	$wp_customize->remove_setting('woocommerce_catalog_rows');
+	$wp_customize->remove_control('woocommerce_catalog_rows');
 }
 
 add_action('customize_register', 'oforib_removeWooCommerceCustomization');
@@ -115,6 +115,28 @@ function oforib_editAccountMenu($items) {
 }
 
 add_filter('woocommerce_account_menu_items', 'oforib_editAccountMenu');
+
+function oforib_checkIfItemAlreadyInCart($passed, $product_id, $quantity, $variation_id = null, $variations = null) {
+	if (in_array( $product_id, array_column( WC()->cart->get_cart(), 'product_id'))):
+        wc_add_notice('This service is already in your cart.', 'error');
+        $passed = false;
+	endif;
+    return $passed;
+}
+
+add_action('woocommerce_add_to_cart_validation', 'oforib_checkIfItemAlreadyInCart', 10, 5);
+
+function oforib_checkIfQuantityExceedsOne() {
+	$cart = WC()->cart;
+
+	foreach ($cart->get_cart() as $key => $item):
+		if ($item['quantity'] > 1):
+			$cart->set_quantity($key, 1);
+		endif;
+	endforeach;
+}
+
+add_action('woocommerce_check_cart_items', 'oforib_checkIfQuantityExceedsOne');
 
 function oforib_ignoreCertainFiles($exclude_filters) {
 	$exclude_filters[] = 'oforibeautytheme/node_modules';

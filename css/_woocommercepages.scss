@@ -44,7 +44,7 @@ div.wc-block-components-quantity-selector, th.wc-block-cart-items__header-produc
 td.wc-block-cart-item__total { width: 15%; }
 
 a.wc-block-cart__submit-button {
-    @include buttons;
+    @include buttonsImportant;
     transition: $trans !important;
     text-decoration: none;
 }
@@ -54,9 +54,11 @@ div.wc-block-components-order-summary-item__description { padding-left: 0 !impor
 
 body.woocommerce-checkout div.textContent {
     input[type=text], input[type=email], input[type=tel] {
-        background-color: $lightpink !important;
-        color: $darkgray !important;
+        @include inputFieldsImportant;
     }
 
-    button.wc-block-components-checkout-place-order-button { @include buttons; }
+    button.wc-block-components-checkout-place-order-button {
+        @include buttonsImportant;
+        transition: $trans;
+    }
 }

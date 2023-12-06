@@ -1,5 +1,5 @@
         </div>
-        <footer>
+        <footer id="siteFooter">
             <div class="threeColumns">
                 <div>
                     <?php if (count(wp_get_nav_menu_items('Resources'))): ?>
@@ -18,9 +18,6 @@
                 </a>
             </div>
             <?php dynamic_sidebar('Socials'); ?>
-            <!--<div id="socials">
-                <a href="https://www.instagram.com/oforibeautyy/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-            </div>-->
             <p id="smallFooterText">&copy; <?php echo date("Y"); ?> Ofori Beauty<br>WordPress site created by Simeon Davenport</p>
 		</footer>
 		<?php wp_footer(); ?>

@@ -6,7 +6,7 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-        <header>
+        <header id="siteHeader">
             <a id="logoHeader" href="<?php echo esc_url(site_url('/')); ?>">
                 <img class="siteLogo" src="<?php echo get_theme_file_uri('/images/logo.png'); ?>" alt="Ofori Beauty logo">
             </a>

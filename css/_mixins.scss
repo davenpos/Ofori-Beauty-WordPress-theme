@@ -3,11 +3,6 @@
     &:hover { color: $mediumpink; }
 }
 
-@mixin darkLinkText {
-    color: $mediumgray !important;
-    &:hover { color: $darkgray !important; }
-}
-
 @mixin headerFooter {
     a:not(.wp-block-social-link-anchor), a i {
         text-decoration: none;
@@ -19,11 +14,12 @@
 @mixin headerAndSidebarLinks {
     li a {
         text-decoration: none;
-        &:hover { color: $plum !important; }
+        color: $deeppink;
+        &:hover { color: $plum; }
     }
     li.is-active a, li a[aria-current=page], li.current-menu-item a, li.current_page_parent a, a.current-menu-item {
         text-decoration: underline;
-        color: $plum !important;
+        color: $plum;
     }
 }
 
@@ -38,18 +34,23 @@
 }
 
 @mixin fitContentWidth {
-    width: -moz-fit-content !important;
-    width: fit-content !important;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 
-@mixin buttons {
-    background: $deeppink !important;
+@mixin buttonsImportant {
+    background-color: $deeppink !important;
     border-color: $deeppink !important;
     color: white !important;
     border: none !important;
     border-radius: 3px !important;
     cursor: pointer !important;
     font-weight: normal !important;
-    padding: 10px;
-    &:hover { background: $mediumpink !important; }
+    &:hover { background-color: $mediumpink !important; }
+}
+
+@mixin inputFieldsImportant {
+    background-color: $lightpink !important;
+    color: $darkgray !important;
+    border: 1.5px solid black !important;
 }

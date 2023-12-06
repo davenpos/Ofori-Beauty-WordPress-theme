@@ -37,16 +37,15 @@ class LiveSearch {
   }
   openOverlay() {
     var topPos = 0;
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar") && jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 450) {
-      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop() < 46) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass("admin-bar")) {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() <= 600) {
         topPos = -(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop() - 46);
       } else {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('nav#headerMenu').css("top", "0");
       }
-      this.searchOverlay.css("top", topPos + "px");
     }
     this.searchOverlay.css("opacity", "1");
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').css('overflow', 'hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('noScroll');
     this.searchOverlay.addClass("searchActive");
     this.searchBar.val('');
     this.searchResultsDiv.html('');
@@ -56,7 +55,7 @@ class LiveSearch {
   }
   closeOverlay() {
     this.searchOverlay.css("opacity", "0");
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').css('overflow', '');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('noScroll');
     setTimeout(() => this.searchOverlay.removeClass("searchActive"), 300);
     this.overlayOpen = false;
   }
@@ -161,11 +160,11 @@ class MobileMenu {
       this.navMenu.css('top', this.top + 'px');
     }
     this.navMenu.addClass('mobileMenuVisible');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').css('overflow', 'hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('noScroll');
     this.menuOpen = true;
   }
   closeMobileMenu() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').css('overflow', '');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('noScroll');
     this.navMenu.removeClass('mobileMenuVisible');
     this.navMenu.css('top', '0');
     this.menuOpen = false;

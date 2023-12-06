@@ -9,6 +9,7 @@ Version: 1.0.1
 }
 
 body {
+  background-color: white;
   font-family: Roboto, sans-serif;
   margin: 0;
   min-height: 100vh;
@@ -18,16 +19,13 @@ body {
 body.admin-bar {
   min-height: calc(100vh - 32px);
 }
+body.noScroll {
+  overflow: hidden;
+}
 
 div#mainContent {
   flex: 1;
   margin-bottom: 8px;
-}
-div#mainContent a:not(.wp-block-social-link-anchor) {
-  color: rgb(245, 83, 115);
-}
-div#mainContent a:not(.wp-block-social-link-anchor):hover {
-  color: rgb(239, 139, 161);
 }
 
 div.textContent, div#searchOverlay {
@@ -39,17 +37,30 @@ a, a i, input[type=submit], button[type=submit], i#closeSearch, button.wc-block-
 }
 
 input[type=submit], button[type=submit], a.button {
-  background: rgb(245, 83, 115) !important;
+  background-color: rgb(245, 83, 115);
+  border-color: rgb(245, 83, 115);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: normal;
+  padding: 10px;
+}
+input[type=submit]:hover, button[type=submit]:hover, a.button:hover {
+  background: rgb(239, 139, 161);
+}
+
+.button:not(.wp-hide-pw, .wc-forward), input.tnp-submit {
+  background-color: rgb(245, 83, 115) !important;
   border-color: rgb(245, 83, 115) !important;
   color: white !important;
   border: none !important;
   border-radius: 3px !important;
   cursor: pointer !important;
   font-weight: normal !important;
-  padding: 10px;
 }
-input[type=submit]:hover, button[type=submit]:hover, a.button:hover {
-  background: rgb(239, 139, 161) !important;
+.button:not(.wp-hide-pw, .wc-forward):hover, input.tnp-submit:hover {
+  background-color: rgb(239, 139, 161) !important;
 }
 
 input[type=text], input[type=password], input[type=email], input[type=tel] {
@@ -68,8 +79,8 @@ div.threeColumns {
   border-radius: 10px;
   padding: 0 10px 20px 10px;
   font-size: small;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+  width: -moz-fit-content;
+  width: fit-content;
   height: fit-content;
 }
 .sideMenu ul, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul {
@@ -79,13 +90,14 @@ div.threeColumns {
 }
 .sideMenu ul li a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a {
   text-decoration: none;
+  color: rgb(245, 83, 115);
 }
 .sideMenu ul li a:hover, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a:hover {
-  color: rgb(245, 0, 160) !important;
+  color: rgb(245, 0, 160);
 }
 .sideMenu ul li.is-active a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.is-active a, .sideMenu ul li a[aria-current=page], body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a[aria-current=page], .sideMenu ul li.current-menu-item a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.current-menu-item a, .sideMenu ul li.current_page_parent a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.current_page_parent a, .sideMenu ul a.current-menu-item, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul a.current-menu-item {
   text-decoration: underline;
-  color: rgb(245, 0, 160) !important;
+  color: rgb(245, 0, 160);
 }
 .sideMenu h2, body.woocommerce-account nav.woocommerce-MyAccount-navigation h2 {
   margin-bottom: 0;
@@ -112,57 +124,59 @@ i.fa.fa-window-close:hover {
 
 input.tnp-email, input.tnp-name {
   background-color: #ffe1ee !important;
+  color: rgb(59, 58, 58) !important;
+  border: 1.5px solid black !important;
 }
 
 input.tnp-submit {
   margin: auto !important;
 }
 
-header:not(.woocommerce-Address-title) {
+header#siteHeader {
   background-color: #ffe1ee;
-  color: rgb(239, 139, 161);
   display: flex;
   align-items: center;
   padding: 15px 80px;
   z-index: 100;
 }
-header:not(.woocommerce-Address-title) a:not(.wp-block-social-link-anchor), header:not(.woocommerce-Address-title) a i {
+header#siteHeader a:not(.wp-block-social-link-anchor), header#siteHeader a i {
   text-decoration: none;
   font-size: 16px;
 }
-header:not(.woocommerce-Address-title) ul.menu {
+header#siteHeader ul.menu {
   list-style: none;
 }
-header:not(.woocommerce-Address-title) nav#headerMenu {
+header#siteHeader nav#headerMenu {
   display: flex;
   align-items: center;
   width: 100%;
 }
-header:not(.woocommerce-Address-title) nav#headerMenu li a {
+header#siteHeader nav#headerMenu li a {
   text-decoration: none;
+  color: rgb(245, 83, 115);
 }
-header:not(.woocommerce-Address-title) nav#headerMenu li a:hover {
-  color: rgb(245, 0, 160) !important;
+header#siteHeader nav#headerMenu li a:hover {
+  color: rgb(245, 0, 160);
 }
-header:not(.woocommerce-Address-title) nav#headerMenu li.is-active a, header:not(.woocommerce-Address-title) nav#headerMenu li a[aria-current=page], header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a, header:not(.woocommerce-Address-title) nav#headerMenu a.current-menu-item {
+header#siteHeader nav#headerMenu li.is-active a, header#siteHeader nav#headerMenu li a[aria-current=page], header#siteHeader nav#headerMenu li.current-menu-item a, header#siteHeader nav#headerMenu li.current_page_parent a, header#siteHeader nav#headerMenu a.current-menu-item {
   text-decoration: underline;
-  color: rgb(245, 0, 160) !important;
+  color: rgb(245, 0, 160);
 }
-header:not(.woocommerce-Address-title) ul.menu {
+header#siteHeader ul.menu {
   display: flex;
   align-items: center;
   padding-left: 0;
 }
-header:not(.woocommerce-Address-title) ul.menu li {
+header#siteHeader ul.menu li {
   margin: 0 10px;
 }
-header:not(.woocommerce-Address-title) a, header:not(.woocommerce-Address-title) a i, header:not(.woocommerce-Address-title) i.fa.fa-bars {
+header#siteHeader a, header#siteHeader a i, header#siteHeader i.fa.fa-bars {
   color: rgb(245, 83, 115);
 }
-header:not(.woocommerce-Address-title) a:hover, header:not(.woocommerce-Address-title) a i:hover, header:not(.woocommerce-Address-title) i.fa.fa-bars:hover {
+header#siteHeader a:hover, header#siteHeader a i:hover, header#siteHeader i.fa.fa-bars:hover {
   color: rgb(245, 0, 160);
 }
-header:not(.woocommerce-Address-title) i.current-menu-item {
+header#siteHeader i.current-menu-item {
   color: rgb(245, 0, 160);
 }
 
@@ -214,11 +228,11 @@ footer p#smallFooterText {
   text-align: center;
   margin-top: 0;
 }
-footer a:not(.wp-block-social-link-anchor), footer a i {
-  color: rgb(106, 95, 96) !important;
+footer a {
+  color: rgb(106, 95, 96);
 }
-footer a:not(.wp-block-social-link-anchor):hover, footer a i:hover {
-  color: rgb(59, 58, 58) !important;
+footer a:hover {
+  color: rgb(59, 58, 58);
 }
 footer ul.menu {
   margin: 0;
@@ -230,7 +244,7 @@ footer ul.menu li:last-of-type {
   padding-bottom: 0;
 }
 footer ul.menu li.current-menu-item a {
-  color: rgb(59, 58, 58) !important;
+  color: rgb(59, 58, 58);
   text-decoration: underline;
 }
 footer h2 {
@@ -239,8 +253,8 @@ footer h2 {
 footer a#logoFooter {
   display: inline-block;
   height: 80px;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 footer ul.wp-block-social-links {
   margin: 10px 0;
@@ -266,6 +280,9 @@ div.textContent.blogPage h1 a {
 div.textContent :not(p.smallBlogPostText) a {
   color: rgb(245, 83, 115);
 }
+div.textContent :not(p.smallBlogPostText) a:hover {
+  color: rgb(239, 139, 161);
+}
 div.textContent div.postContent a {
   text-shadow: none;
 }
@@ -275,8 +292,8 @@ div.blogArchives a {
 }
 
 .smallBlogPostText, .smallBlogPostText a {
-  color: #777777 !important;
-  text-shadow: 0.25px 0.25px 0.5px black !important;
+  color: #777777;
+  text-shadow: 0.25px 0.25px 0.5px black;
   font-size: 12px;
   margin: 0;
 }
@@ -284,7 +301,7 @@ div.blogArchives a {
   font-weight: bold;
 }
 .smallBlogPostText a:hover {
-  color: #aaaaaa !important;
+  color: #aaaaaa;
 }
 
 div.widgetSidebar {
@@ -335,15 +352,8 @@ body.login div#login h1 a {
 body.login form#loginform {
   margin: 0;
   border: 1px solid black;
-  background-color: #ffe1ee;
   border-radius: 10px;
-}
-body.login input[type=password] {
-  border-radius: 20px 0 0 20px;
-}
-body.login button.wp-hide-pw {
-  border: 1px solid #8c8f94 !important;
-  border-radius: 0 !important;
+  background-color: rgb(252, 202, 220);
 }
 body.login button.wp-hide-pw span, body.login select#language-switcher-locales {
   color: rgb(106, 95, 96);
@@ -393,6 +403,9 @@ div#comments div.reply a.comment-edit-link {
 div#comments p.commentContent {
   margin: 0;
 }
+div#comments p.smallBlogPostText {
+  font-size: 10.5px;
+}
 
 p.woocommerce-store-notice {
   padding: 5px 0;
@@ -434,6 +447,7 @@ a.button.wc-forward:hover {
 .searchBox, div#searchform input#s, div#searchOverlay input.searchTerm {
   width: 90%;
   height: 50px;
+  border: 1.5px solid black;
   border-radius: 30px;
   font-size: 24px;
 }
@@ -585,19 +599,18 @@ td.wc-block-cart-item__total {
 }
 
 a.wc-block-cart__submit-button {
-  background: rgb(245, 83, 115) !important;
+  background-color: rgb(245, 83, 115) !important;
   border-color: rgb(245, 83, 115) !important;
   color: white !important;
   border: none !important;
   border-radius: 3px !important;
   cursor: pointer !important;
   font-weight: normal !important;
-  padding: 10px;
   transition: 0.3s !important;
   text-decoration: none;
 }
 a.wc-block-cart__submit-button:hover {
-  background: rgb(239, 139, 161) !important;
+  background-color: rgb(239, 139, 161) !important;
 }
 
 div.wc-block-components-order-summary-item__image {
@@ -611,19 +624,20 @@ div.wc-block-components-order-summary-item__description {
 body.woocommerce-checkout div.textContent input[type=text], body.woocommerce-checkout div.textContent input[type=email], body.woocommerce-checkout div.textContent input[type=tel] {
   background-color: #ffe1ee !important;
   color: rgb(59, 58, 58) !important;
+  border: 1.5px solid black !important;
 }
 body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button {
-  background: rgb(245, 83, 115) !important;
+  background-color: rgb(245, 83, 115) !important;
   border-color: rgb(245, 83, 115) !important;
   color: white !important;
   border: none !important;
   border-radius: 3px !important;
   cursor: pointer !important;
   font-weight: normal !important;
-  padding: 10px;
+  transition: 0.3s;
 }
 body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button:hover {
-  background: rgb(239, 139, 161) !important;
+  background-color: rgb(239, 139, 161) !important;
 }
 
 @media (max-width: 925px) {
@@ -632,7 +646,7 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
     width: auto;
     padding-left: 20px;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu {
+  header#siteHeader nav#headerMenu {
     transform: translateY(-100%);
     position: absolute;
     left: 0;
@@ -641,36 +655,36 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
     transition: 0.3s;
     display: block;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu.mobileMenuVisible {
+  header#siteHeader nav#headerMenu.mobileMenuVisible {
     transform: translateY(0);
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu * {
+  header#siteHeader nav#headerMenu * {
     display: block;
     margin: 0;
     font-size: 20px;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu a {
-    color: #ffe1ee;
-    display: table-row;
-  }
-  header:not(.woocommerce-Address-title) nav#headerMenu li, header:not(.woocommerce-Address-title) nav#headerMenu div.headerRight {
+  header#siteHeader nav#headerMenu li, header#siteHeader nav#headerMenu div.headerRight {
     border-bottom: 1px solid white;
     margin-right: 50px;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu div.headerRight ~ div.headerRight {
+  header#siteHeader nav#headerMenu li a, header#siteHeader nav#headerMenu div.headerRight a {
+    color: #ffe1ee;
+    display: table-row;
+  }
+  header#siteHeader nav#headerMenu div.headerRight ~ div.headerRight {
     border-bottom: none;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu li.current-menu-item a, header:not(.woocommerce-Address-title) nav#headerMenu li.current_page_parent a, header:not(.woocommerce-Address-title) nav#headerMenu li a:hover {
+  header#siteHeader nav#headerMenu li.current-menu-item a, header#siteHeader nav#headerMenu li.current_page_parent a, header#siteHeader nav#headerMenu li a:hover {
     font-weight: bold;
-    color: white !important;
+    color: white;
     text-shadow: 0.25px 0.25px 0.5px black;
     text-decoration: none;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu .headerRight {
+  header#siteHeader nav#headerMenu .headerRight {
     margin-left: 0;
     padding-left: 0;
   }
-  header:not(.woocommerce-Address-title) nav#headerMenu i#closeMenu {
+  header#siteHeader nav#headerMenu i#closeMenu {
     display: block;
     right: 10px;
     font-size: 40px;
@@ -770,11 +784,11 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
   }
 }
 @media (max-width: 600px) {
-  header:not(.woocommerce-Address-title), footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
+  header#siteHeader, footer, div.textContent, div#searchOverlay, div.blogColumns div.textContent.blogPage {
     padding-left: 10px;
     padding-right: 10px;
   }
-  div.blogColumns div.widgetSidebar {
+  div.blogColumns div.widgetSidebar, div#comments {
     margin: 0 10px;
   }
   body div#searchOverlay {
@@ -792,9 +806,9 @@ body.woocommerce-checkout div.textContent button.wc-block-components-checkout-pl
   body div#searchOverlay div#liveSearchResults div.threeColumns {
     grid-template-columns: 1fr;
   }
-  div#servicesSearchResults {
-    grid-column: auto/auto !important;
-    grid-row: auto/auto !important;
+  body div#searchOverlay div#liveSearchResults div#servicesSearchResults {
+    grid-column: auto/auto;
+    grid-row: auto/auto;
   }
 }
 @media (max-width: 525px) {

@@ -14,7 +14,10 @@ footer {
         margin-top: 0;
     }
 
-    a:not(.wp-block-social-link-anchor), a i { @include darkLinkText; }
+    a {
+        color: $mediumgray;
+        &:hover { color: $darkgray; }
+    }
 
     ul.menu {
         margin: 0;
@@ -23,7 +26,7 @@ footer {
             padding-bottom: 12px;
             &:last-of-type { padding-bottom: 0; }
             &.current-menu-item a {
-                color: $darkgray !important;
+                color: $darkgray;
                 text-decoration: underline;
             }
         }

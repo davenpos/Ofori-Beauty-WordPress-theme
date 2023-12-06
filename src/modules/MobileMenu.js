@@ -31,12 +31,12 @@ class MobileMenu {
             this.navMenu.css('top', this.top + 'px')
         }
         this.navMenu.addClass('mobileMenuVisible')
-        $('html, body').css('overflow', 'hidden')
+        $('body').addClass('noScroll')
         this.menuOpen = true
     }
 
     closeMobileMenu() {
-        $('html, body').css('overflow', '')
+        $('body').removeClass('noScroll')
         this.navMenu.removeClass('mobileMenuVisible')
         this.navMenu.css('top', '0')
         this.menuOpen = false
