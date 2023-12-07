@@ -7,6 +7,7 @@ body.woocommerce-account {
             font-size: 2em;
             display: block;
             margin-top: 0.67em;
+            margin-bottom: 0.33em;
             font-weight: bold;
         }
     }
@@ -17,6 +18,9 @@ body.woocommerce-account {
         padding-left: 10px;
         p:first-of-type { margin-top: 0; }
         div.wc-block-components-notice-banner { margin: 0; }
+        input.woocommerce-Input { height: 25px; }
+        input.woocommerce-Input, label, fieldset { font-size: 14px; }
+        label { line-height: 1.5; }
     }
 
     span.show-password-input { top: 0; }

@@ -90,8 +90,8 @@ div.threeColumns {
 .sideMenu, body.woocommerce-account nav.woocommerce-MyAccount-navigation {
   background-color: #ffe1ee;
   border-radius: 10px;
-  padding: 0 10px 20px 10px;
-  font-size: small;
+  padding: 0 15px 20px 15px;
+  font-size: 14px;
   width: -moz-fit-content;
   width: fit-content;
   height: fit-content;
@@ -609,6 +609,7 @@ body.woocommerce-account nav.woocommerce-MyAccount-navigation::before {
   font-size: 2em;
   display: block;
   margin-top: 0.67em;
+  margin-bottom: 0.33em;
   font-weight: bold;
 }
 body.woocommerce-account div.woocommerce-MyAccount-content {
@@ -621,6 +622,15 @@ body.woocommerce-account div.woocommerce-MyAccount-content p:first-of-type {
 }
 body.woocommerce-account div.woocommerce-MyAccount-content div.wc-block-components-notice-banner {
   margin: 0;
+}
+body.woocommerce-account div.woocommerce-MyAccount-content input.woocommerce-Input {
+  height: 25px;
+}
+body.woocommerce-account div.woocommerce-MyAccount-content input.woocommerce-Input, body.woocommerce-account div.woocommerce-MyAccount-content label, body.woocommerce-account div.woocommerce-MyAccount-content fieldset {
+  font-size: 14px;
+}
+body.woocommerce-account div.woocommerce-MyAccount-content label {
+  line-height: 1.5;
 }
 body.woocommerce-account span.show-password-input {
   top: 0;
