@@ -1,5 +1,15 @@
 p.woocommerce-store-notice { padding: 5px 0; }
 
+ul.products li {
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid black;
+    &:first-of-type { padding-top: 0; }
+    &:last-of-type { border-bottom: none; }
+    a h2 {
+        margin-top: 0;
+    }
+}
+
 div.serviceDescription p:last-of-type { margin-bottom: 5px; }
 
 .price {

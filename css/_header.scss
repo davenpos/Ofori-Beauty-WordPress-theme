@@ -1,6 +1,5 @@
 header#siteHeader {
     @include headerFooter;
-    background-color: $lightpink;
     @include flexCenterItems;
     padding: 15px $verticalPadding;
     z-index: 100;
@@ -44,4 +43,17 @@ i.fa.fa-bars {
 i#closeMenu {
     display: none;
     transition: $trans;
+}
+
+body.error404, body.search {
+    header#siteHeader li#menu-item-36 a {
+        color: $deeppink;
+        text-decoration: none;
+        &:hover { color: $plum; }
+    }
+}
+
+body.search header#siteHeader li#menu-item-37 a {
+    color: $plum;
+    text-decoration: underline;
 }

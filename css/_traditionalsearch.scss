@@ -14,7 +14,10 @@ div#searchform {
     }
 }
 
-div#searchResults h2 {
-    text-shadow: $mediumShadow;
-    &.postSearchResultsPage { margin-bottom: 0; }
+div#searchResults {
+    li { list-style: none; }
+    h2 {
+        text-shadow: $mediumShadow;
+        &.postSearchResultsPage { margin-bottom: 0; }
+    }
 }

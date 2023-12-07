@@ -3,7 +3,8 @@
 }
 
 body {
-    background-color: white;
+    background-color: #fafafa;
+    color: #222;
     font-family: Roboto, sans-serif;
     margin: 0;
     min-height: 100vh;
@@ -20,6 +21,12 @@ div#mainContent {
 }
 
 div.textContent, div#searchOverlay { padding: 0 $verticalPadding; }
+div.textContent {
+    max-width: 1280px;
+    margin: auto;
+    text-align: justify;
+    p { line-height: 1.15em; }
+}
 
 a, a i, input[type=submit], button[type=submit], i#closeSearch, button.wc-block-cart-item__remove-link { transition: $trans; }
 
@@ -28,17 +35,17 @@ input[type=submit], button[type=submit], a.button {
     border-color: $deeppink;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: normal;
     padding: 10px;
-    &:hover { background: $mediumpink; }
+    &:hover { background-color: $mediumpink; }
 }
 
 .button:not(.wp-hide-pw, .wc-forward), input.tnp-submit { @include buttonsImportant; }
 
 input[type=text], input[type=password], input[type=email], input[type=tel] {
-    border-radius: 30px !important;
+    border-radius: 5px !important;
     padding-left: 8px !important;
 }
 
@@ -82,7 +89,6 @@ i.fa.fa-window-close {
     &:hover { filter: brightness(90%); }
 }
 
-input.tnp-email, input.tnp-name {
-    @include inputFieldsImportant;
-}
+body:not(.page-id-103) input.tnp-email { width: 29% !important; }
+input.tnp-email, input.tnp-name { @include inputFieldsImportant; }
 input.tnp-submit { margin: auto !important; }

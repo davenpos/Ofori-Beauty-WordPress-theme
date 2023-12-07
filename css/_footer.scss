@@ -1,6 +1,5 @@
-footer {
+footer#siteFooter {
     @include headerFooter;
-    background-color: $lightpink;
     padding: 20px $verticalPadding 0;
     color: $mediumgray;
 
@@ -14,7 +13,7 @@ footer {
         margin-top: 0;
     }
 
-    a {
+    a:not(.wp-block-social-link-anchor) {
         color: $mediumgray;
         &:hover { color: $darkgray; }
     }
@@ -41,4 +40,17 @@ footer {
     }
 
     ul.wp-block-social-links { margin: 10px 0; }
+}
+
+body.error404, body.search {
+    footer#siteFooter li#menu-item-36 a {
+        color: $mediumgray;
+        text-decoration: none;
+        &:hover { color: $darkgray; }
+    }
+}
+
+body.search footer#siteFooter li#menu-item-37 a {
+    color: $darkgray;
+    text-decoration: underline;
 }
