@@ -437,14 +437,11 @@ function oforib_customizerColorsCSS() { ?>
 
 		input.tnp-email, input.tnp-name, body.woocommerce-checkout div.textContent input[type=text], body.woocommerce-checkout div.textContent input[type=email], body.woocommerce-checkout div.textContent input[type=tel] {
 			color: <?php echo get_theme_mod('oforib_textInput'); ?> !important;
+			background-color: <?php echo get_theme_mod('oforib_textInputBackground'); ?> !important;
 		}
 
 		div#searchform input#s {
 			color: <?php echo get_theme_mod('oforib_textInput'); ?>;
-		}
-
-		input.tnp-email, input.tnp-name, body.woocommerce-checkout div.textContent input[type=text], body.woocommerce-checkout div.textContent input[type=email], body.woocommerce-checkout div.textContent input[type=tel] {
-			background-color: <?php echo get_theme_mod('oforib_textInputBackground'); ?> !important;
 		}
 
 		div#searchform input#s, body.woocommerce-account input[type=text], body.woocommerce-account input[type=password], body.woocommerce-account input[type=email] {

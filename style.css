@@ -77,6 +77,9 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
   border-radius: 5px !important;
   padding-left: 8px !important;
 }
+input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder, input[type=tel]::placeholder {
+  color: rgb(106, 95, 96) !important;
+}
 
 div.threeColumns {
   display: grid;
@@ -140,6 +143,9 @@ input.tnp-email, input.tnp-name {
   background-color: #ffe1ee !important;
   color: rgb(59, 58, 58) !important;
   border: 1.5px solid black !important;
+}
+input.tnp-email::placeholder, input.tnp-name::placeholder {
+  color: rgb(106, 95, 96);
 }
 
 input.tnp-submit {
@@ -682,6 +688,9 @@ body.woocommerce-checkout div.textContent input[type=text], body.woocommerce-che
   background-color: #ffe1ee !important;
   color: rgb(59, 58, 58) !important;
   border: 1.5px solid black !important;
+}
+body.woocommerce-checkout div.textContent input[type=text]::placeholder, body.woocommerce-checkout div.textContent input[type=email]::placeholder, body.woocommerce-checkout div.textContent input[type=tel]::placeholder {
+  color: rgb(106, 95, 96);
 }
 body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button {
   background-color: rgb(245, 83, 115) !important;

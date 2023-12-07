@@ -54,4 +54,5 @@
     background-color: $lightpink !important;
     color: $darkgray !important;
     border: 1.5px solid black !important;
+    &::placeholder { color: $mediumgray; }
 }
