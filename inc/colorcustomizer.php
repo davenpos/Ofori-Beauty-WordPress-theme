@@ -248,8 +248,12 @@ function oforib_customizerColorsCSS() { ?>
 			background-color: <?php echo get_theme_mod('oforib_headerFooterAndSidebar'); ?>;
 		}
 		
-		.sideMenu ul li a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a, header#siteHeader nav#headerMenu li a, header#siteHeader a, header#siteHeader a i, header#siteHeader i.fa.fa-bars, body.error404 header#siteHeader li#menu-item-36 a, body.search header#siteHeader li#menu-item-36 a {
+		.sideMenu ul li a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a, header#siteHeader a, header#siteHeader a i, header#siteHeader i.fa.fa-bars, body.error404 header#siteHeader li#menu-item-36 a, body.search header#siteHeader li#menu-item-36 a {
 			color: <?php echo get_theme_mod('oforib_headerAndSidebarText'); ?>;
+		}
+
+		@media (min-width: 1000px) {
+			header#siteHeader nav#headerMenu li a { color: <?php echo get_theme_mod('oforib_headerAndSidebarText'); ?>; }
 		}
 
 		.sideMenu ul li a:hover, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a:hover, .sideMenu ul li.is-active a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.is-active a, .sideMenu ul li a[aria-current=page], body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li a[aria-current=page], .sideMenu ul li.current-menu-item a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.current-menu-item a, .sideMenu ul li.current_page_parent a, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul li.current_page_parent a, .sideMenu ul a.current-menu-item, body.woocommerce-account nav.woocommerce-MyAccount-navigation ul a.current-menu-item, header#siteHeader nav#headerMenu li a:hover, header#siteHeader nav#headerMenu li.is-active a, header#siteHeader nav#headerMenu li a[aria-current=page], header#siteHeader nav#headerMenu li.current-menu-item a, header#siteHeader nav#headerMenu li.current_page_parent a, header#siteHeader nav#headerMenu a.current-menu-item, header#siteHeader a:hover, header#siteHeader a i:hover, header#siteHeader i.fa.fa-bars:hover, header#siteHeader i.current-menu-item, body.error404 header#siteHeader li#menu-item-36 a:hover, body.search header#siteHeader li#menu-item-36 a:hover, body.search header#siteHeader li#menu-item-37 a {

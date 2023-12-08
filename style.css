@@ -632,7 +632,7 @@ body.woocommerce-account div.woocommerce-MyAccount-content label {
   line-height: 1.5;
 }
 body.woocommerce-account span.show-password-input {
-  top: 0;
+  top: 5px;
 }
 body.woocommerce-account span em {
   display: none;
