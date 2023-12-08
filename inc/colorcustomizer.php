@@ -7,7 +7,8 @@ function oforib_colorCustomizer($wp_customize) {
 
 	$wp_customize->add_setting('oforib_background', array(
 		'default' => '#fafafa',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Background Color Control', array(
@@ -18,7 +19,8 @@ function oforib_colorCustomizer($wp_customize) {
 	
 	$wp_customize->add_setting('oforib_mainContentText', array(
 		'default' => '#222',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Main Content Text Color Control', array(
@@ -29,7 +31,8 @@ function oforib_colorCustomizer($wp_customize) {
 	
 	$wp_customize->add_setting('oforib_headerFooterAndSidebar', array(
 		'default' => '#ffe1ee',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Header, Footer and Sidebar Color Control', array(
@@ -39,8 +42,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_headerAndSidebarText', array(
-		'default' => 'rgb(245, 83, 115)',
-		'transport' => 'refresh'
+		'default' => '#f55373',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Header and Sidebar Text Color Control', array(
@@ -50,8 +54,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_headerAndSidebarActiveText', array(
-		'default' => 'rgb(245, 0, 160)',
-		'transport' => 'refresh'
+		'default' => '#f500a0',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Header and Sidebar Active Text Color Control', array(
@@ -61,8 +66,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_footerText', array(
-		'default' => 'rgb(106, 95, 96)',
-		'transport' => 'refresh'
+		'default' => '#6a5f60',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Footer Text Color Control', array(
@@ -72,8 +78,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_footerActiveText', array(
-		'default' => 'rgb(59, 58, 58)',
-		'transport' => 'refresh'
+		'default' => '#3b3a3a',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Footer Active Text Color Control', array(
@@ -83,8 +90,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_linkAndButton', array(
-		'default' => 'rgb(245, 83, 115)',
-		'transport' => 'refresh'
+		'default' => '#f55373',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Link and Button Color Control', array(
@@ -94,8 +102,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_linkAndButtonHover', array(
-		'default' => 'rgb(239, 139, 161)',
-		'transport' => 'refresh'
+		'default' => '#ef8ba1',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Link and Button Hover Color Control', array(
@@ -105,8 +114,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_buttonText', array(
-		'default' => 'white',
-		'transport' => 'refresh'
+		'default' => '#ffffff',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Button Text Color Control', array(
@@ -116,8 +126,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_textInput', array(
-		'default' => 'rgb(59, 58, 58)',
-		'transport' => 'refresh'
+		'default' => '#3b3a3a',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Text Input Color Control', array(
@@ -128,7 +139,8 @@ function oforib_colorCustomizer($wp_customize) {
 	
 	$wp_customize->add_setting('oforib_textInputBackground', array(
 		'default' => '#ffe1ee',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Text Input Background Color Control', array(
@@ -152,7 +164,8 @@ function oforib_colorCustomizer($wp_customize) {
 	
 	$wp_customize->add_setting('oforib_archiveHeaderText', array(
 		'default' => '#bbbbbb',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Archive Header Text Color Control', array(
@@ -163,7 +176,8 @@ function oforib_colorCustomizer($wp_customize) {
 	
 	$wp_customize->add_setting('oforib_smallBlogPostText', array(
 		'default' => '#777777',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Small Blog Post Text Color Control', array(
@@ -174,7 +188,8 @@ function oforib_colorCustomizer($wp_customize) {
 	
 	$wp_customize->add_setting('oforib_smallBlogPostTextHover', array(
 		'default' => '#aaaaaa',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Small Blog Post Text Hover Color Control', array(
@@ -184,8 +199,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_loginForm', array(
-		'default' => 'rgb(252, 202, 220)',
-		'transport' => 'refresh'
+		'default' => '#fccadc',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Login Form Color Control', array(
@@ -196,7 +212,8 @@ function oforib_colorCustomizer($wp_customize) {
 	
 	$wp_customize->add_setting('oforib_mobileMenuText', array(
 		'default' => '#ffe1ee',
-		'transport' => 'refresh'
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Mobile Menu Text Color Control', array(
@@ -206,8 +223,9 @@ function oforib_colorCustomizer($wp_customize) {
 	)));
 	
 	$wp_customize->add_setting('oforib_mobileMenuTextActive', array(
-		'default' => 'white',
-		'transport' => 'refresh'
+		'default' => '#ffffff',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'Mobile Menu Text Active Color Control', array(
@@ -276,7 +294,7 @@ function oforib_customizerColorsCSS() { ?>
 			background-color: <?php echo get_theme_mod('oforib_linkAndButtonHover'); ?>;
 		}
 
-		.button:not(.wp-hide-pw, .wc-forward):hover, input.tnp-submit:hover, a.wc-block-cart__submit-button:hover, body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button:hover {
+		.button:not(.wp-hide-pw, .wc-forward):hover, input.tnp-submit:hover, a.wc-block-cart__submit-button:hover, a.wp-block-button__link:hover, body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button:hover {
 			background-color: <?php echo get_theme_mod('oforib_linkAndButtonHover'); ?> !important;
 		}
 
@@ -292,7 +310,7 @@ function oforib_customizerColorsCSS() { ?>
 			color: <?php echo get_theme_mod('oforib_buttonText'); ?>;
 		}
 
-		.button:not(.wp-hide-pw, .wc-forward), input.tnp-submit, a.wc-block-cart__submit-button, body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button {
+		.button:not(.wp-hide-pw, .wc-forward), input.tnp-submit, a.wc-block-cart__submit-button, a.wp-block-button__link, body.woocommerce-checkout div.textContent button.wc-block-components-checkout-place-order-button {
 			color: <?php echo get_theme_mod('oforib_buttonText'); ?> !important;
 		}
 
@@ -317,7 +335,6 @@ function oforib_customizerColorsCSS() { ?>
 			}
 			header#siteHeader nav#headerMenu li a, header#siteHeader nav#headerMenu div.headerRight a {
 				color: <?php echo get_theme_mod('oforib_mobileMenuText'); ?>;
-				display: table-row;
 			}
 			header#siteHeader nav#headerMenu li.current-menu-item a, header#siteHeader nav#headerMenu li.current_page_parent a, header#siteHeader nav#headerMenu a.current-menu-item, header#siteHeader nav#headerMenu li a:hover {
 				color: <?php echo get_theme_mod('oforib_mobileMenuTextActive'); ?>;

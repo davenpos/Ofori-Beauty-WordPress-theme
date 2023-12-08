@@ -21,7 +21,6 @@ div.blogArchives a { color: $deeppink; }
 .smallBlogPostText {
     &, & a {
         color: #777777;
-        text-shadow: $smallShadow;
         font-size: 12px;
         margin: 0;
     }
