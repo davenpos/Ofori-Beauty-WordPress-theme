@@ -24,7 +24,7 @@ div.textContent, div#searchOverlay { padding: 0 $verticalPadding; }
 div.textContent {
     max-width: 1280px;
     margin: auto;
-    p {
+    p:not(.smallBlogPostText) {
         line-height: 1.15em;
         text-align: justify;
     }

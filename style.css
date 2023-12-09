@@ -37,7 +37,7 @@ div.textContent {
   max-width: 1280px;
   margin: auto;
 }
-div.textContent p {
+div.textContent p:not(.smallBlogPostText) {
   line-height: 1.15em;
   text-align: justify;
 }
