@@ -24,8 +24,10 @@ div.textContent, div#searchOverlay { padding: 0 $verticalPadding; }
 div.textContent {
     max-width: 1280px;
     margin: auto;
-    text-align: justify;
-    p { line-height: 1.15em; }
+    p {
+        line-height: 1.15em;
+        text-align: justify;
+    }
 }
 
 a, a i, input[type=submit], button[type=submit], i#closeSearch, button.wc-block-cart-item__remove-link { transition: $trans; }

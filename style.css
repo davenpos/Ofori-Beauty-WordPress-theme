@@ -2,7 +2,7 @@
 Theme Name: Ofori Beauty
 Author: Simeon Davenport
 Description: The WordPress theme for the Ofori Beauty website
-Version: 1.0.1
+Version: 1.0.0
 */
 * {
   box-sizing: border-box;
@@ -36,10 +36,10 @@ div.textContent, div#searchOverlay {
 div.textContent {
   max-width: 1280px;
   margin: auto;
-  text-align: justify;
 }
 div.textContent p {
   line-height: 1.15em;
+  text-align: justify;
 }
 
 a, a i, input[type=submit], button[type=submit], i#closeSearch, button.wc-block-cart-item__remove-link {
